@@ -1,0 +1,712 @@
+FurtherDetailsProjectRecordsExtension As screen:
+    LoadingSpinner: =LoadingSpinner.Data
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: |-
+        =UpdateContext({fudadetails: varDoc, exStake: Filter(externalstakeholders, Number = fudadetails.ProjectNumber), bnkDrft: Filter('Bank Drafts', projectNumber = fudadetails.ProjectNumber), outAge: Filter(outageRequestList, Number = fudadetails.ProjectNumber)}); 
+        
+        
+        //ClearCollect(docLibrary, Filter('NPG Schematic Diagrams', projectNumber = fudadetails.ProjectNumber), Filter('Acceptance Letters for Projects', projectNumber = fudadetails.ProjectNumber), Filter('E&S Schematic Diagrams', projectNumber = fudadetails.ProjectNumber)) //UpdateContext({exStake: Filter(externalstakeholders, Number = fudadetails.ProjectNumber)})
+
+    homeButtonIcon_7 As icon.Home:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =47
+        Icon: =Icon.BackArrow
+        OnSelect: =Back(CoverRight)
+        Width: =47
+        X: =23
+        Y: =28
+        ZIndex: =1
+
+    OutageDeets_1 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(237, 237, 237, 0.2)
+        Height: =165
+        Items: =Filter(outageRequestList, Number = fudadetails.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =160
+        Width: =461
+        X: =88
+        Y: =334
+        ZIndex: =2
+
+        LabelNumber_8 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(253, 222, 207, 1)
+            Font: =Font.'Lato Light'
+            Height: =47
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =9
+            Text: =ThisItem.Outagepurpose & " " & Char(10)  
+            Width: =447
+            ZIndex: =6
+
+        LabelAmount_8 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(253, 222, 207, 1)
+            Font: =Font.'Lato Light'
+            Height: =47
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Date & " " & Char(10)  
+            Width: =447
+            Y: =55
+            ZIndex: =7
+
+        LabelDate_8 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(253, 222, 207, 1)
+            Font: =Font.'Lato Light'
+            Height: =47
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Duration & " " & Char(10)  
+            Width: =447
+            Y: =111
+            ZIndex: =8
+
+    BankDeets_1 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(237, 237, 237, 0.2)
+        Height: =195
+        Items: =Filter('Bank Drafts', projectNumber = fudadetails.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =184
+        Width: =458
+        X: =91
+        Y: =114
+        ZIndex: =3
+
+        LabelBank_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(232, 244, 217, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Name
+            Width: =447
+            ZIndex: =5
+
+        LabelNumber_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(232, 244, 217, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.AccNumber
+            Width: =447
+            Y: =46
+            ZIndex: =6
+
+        LabelAmount_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(232, 244, 217, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Amount
+            Width: =447
+            Y: =92
+            ZIndex: =7
+
+        LabelDate_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Date
+            Width: =447
+            Y: =139
+            ZIndex: =8
+
+    StakeDeets_1 As gallery.galleryHorizontal:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(237, 237, 237, 0.2)
+        Height: =274
+        Items: =Filter(externalstakeholders, Number = fudadetails.ProjectNumber)
+        ShowScrollbar: =false
+        TemplateSize: =315
+        Width: =314
+        X: =564
+        Y: =116
+        ZIndex: =4
+
+        Label51_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =45
+            OnSelect: =Select(Parent)
+            PaddingRight: =10
+            Size: =13
+            Text: =ThisItem.MeterNumber
+            Width: =315
+            ZIndex: =3
+
+        Label52_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =45
+            OnSelect: =Select(Parent)
+            PaddingRight: =10
+            Size: =13
+            Text: =ThisItem.AccountNumber
+            Width: =315
+            Y: =55
+            ZIndex: =4
+
+        Label59_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(204, 208, 225, 1)
+            Height: =45
+            OnSelect: =Select(Parent)
+            PaddingRight: =10
+            Size: =13
+            Text: =ThisItem.PandT
+            Width: =315
+            Y: =110
+            ZIndex: =9
+
+        Label60_14 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(204, 208, 225, 1)
+            Height: =45
+            OnSelect: =Select(Parent)
+            PaddingRight: =10
+            Size: =13
+            Text: =ThisItem.IandQA
+            Width: =315
+            Y: =165
+            ZIndex: =10
+
+        Label60_15 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =45
+            OnSelect: =Select(Parent)
+            PaddingRight: =10
+            Size: =13
+            Text: =ThisItem.GIS 
+            Width: =315
+            Y: =222
+            ZIndex: =11
+
+    Gallery4_4 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(235, 213, 237, 1)
+        Height: =216
+        Items: =Filter(InpectionPandTFeedback, Number = fudadetails.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =52
+        Width: =600
+        X: =564
+        Y: =440
+        ZIndex: =14
+
+        Label46_4 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Lato Light'
+            Height: =48
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.siteFeedback
+            VerticalAlign: =VerticalAlign.Top
+            Width: =590
+            Y: =4
+            ZIndex: =1
+
+    Gallery4_5 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(235, 213, 237, 1)
+        Height: =189
+        Items: =Filter(InpectionIandQAFeedback, Number = fudadetails.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =64
+        Width: =447
+        X: =95
+        Y: =539
+        ZIndex: =15
+
+        Label46_25 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(29, 49, 64, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.siteFeedback
+            VerticalAlign: =VerticalAlign.Top
+            Width: =437
+            Y: =4
+            ZIndex: =1
+
+    Rectangle15_1 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =178
+        Visible: =false//If(fudadetails.ProjectEngineerEmail = UserMail, false, true)
+        Width: =289
+        X: =70
+        Y: =573
+        ZIndex: =18
+
+    Gallery4_3 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(207, 242, 232, 1)
+        Height: =274
+        Items: =Filter(InpectionFeedback, Number = fudadetails.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =99
+        Width: =271
+        X: =893
+        Y: =116
+        ZIndex: =19
+
+        Label46_3 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Lato Light'
+            Height: =93
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.siteFeedback
+            VerticalAlign: =VerticalAlign.Top
+            Width: =261
+            Y: =4
+            ZIndex: =1
+
+    BlockSubmitButton_1 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =87
+        OnSelect: =
+        Visible: =
+        Width: =214
+        X: =969
+        Y: =672
+        ZIndex: =20
+
+    Label2_2 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(185, 188, 192, 1)
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        Size: =11
+        Text: =Switch(fudadetails.ApprovalStatus, "Awaiting Payment", "MIS Desk", "Awaiting Approval", "HOD's Desk", "Approved", "HOG's Desk", "Outage Request", "Awaiting Outage Request By Project Engineer",  "Site Inspection", "Site Inspection Ongoing",  "HOGverification", "Awaiting HOG Approval", "HODverification", "Awaiting HOD Approval","Commissioned", "Project Has Been Commissioned!", "Awaiting Responses From Other Departments")
+        Width: =1069
+        X: =95
+        Y: =43
+        ZIndex: =21
+
+    buttonsForCommissioning_1 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Height: =104
+        Items: =LookUp(ProjectsWorkProcess, ID = fudadetails.ID)
+        Layout: =Layout.Vertical
+        TemplateSize: =77
+        Width: =610
+        X: =560
+        Y: =664
+        ZIndex: =22
+
+        teamMember_1 As button:
+            DisabledBorderColor: =RGBA(219, 219, 219, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(ThisItem.ApprovalStatus <> "HOGVerification" Or ThisItem.ApprovalStatus <> "HODVerification" Or ThisItem.ApprovalStatus <> "Commissioned", DisplayMode.Edit, DisplayMode.Disabled)
+            Fill: =RGBA(99, 139, 44, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =44
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Set(
+                    VarSpinnerFuda,
+                    true
+                );
+                Patch(
+                    ProjectsWorkProcess,
+                    ThisItem,
+                    {ApprovalStatus: "HOGverification"}
+                );
+                Patch(
+                    tempList,
+                    Defaults(tempList),
+                    {tempText: fudadetails.ID},
+                    {tempKind: "verification"},
+                    {tempType: "HOG"}
+                );
+                Set(
+                    VarSpinnerFuda,
+                    false
+                );
+                Reset(buttonsForCommissioning_1)
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =9
+            Text: ="COMMISSION"
+            Visible: =If(ThisItem.Feed="Nerc"&&ThisItem.ProjectNumber in compI.ProjectNumber&&ThisItem.ProjectNumber in compM.ProjectNumber&&ThisItem.ProjectNumber in compP.ProjectNumber&&ThisItem.ProjectNumber in SurveyReportProjects.projectNumber&&Useremail=ThisItem.ProjectEngineerEmail, true , false )
+            Width: =150
+            X: =9
+            Y: =14
+            ZIndex: =2
+
+        hog_1 As button:
+            DisabledBorderColor: =RGBA(219, 219, 219, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(99, 139, 44, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =44
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Set(
+                    VarSpinnerFuda,
+                    true
+                );
+                Patch(
+                    ProjectsWorkProcess,
+                    ThisItem,
+                    {ApprovalStatus: "HODverification"}
+                );
+                Patch(
+                    tempList,
+                    Defaults(tempList),
+                    {tempText: fudadetails.ID},
+                    {tempKind: "verification"},
+                    {tempType: "HOD"}
+                );
+                Set(
+                    VarSpinnerFuda,
+                    false
+                );
+                Reset(buttonsForCommissioning_1)
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =9
+            Text: ="COMMISSION"
+            Visible: =If(ThisItem.Feed="Nerc"&&ThisItem.ProjectNumber in compI.ProjectNumber&&ThisItem.ProjectNumber in compM.ProjectNumber&&ThisItem.ProjectNumber in compP.ProjectNumber&&ThisItem.ProjectNumber in SurveyReportProjects.projectNumber&&Useremail=ThisItem.HeadOfGroup, true , false )
+            Width: =150
+            X: =226
+            Y: =14
+            ZIndex: =4
+
+        Rectangle8_14 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =74
+            OnSelect: =Select(Parent)
+            Visible: =If(ThisItem.ApprovalStatus = "HOGverification", true)
+            Width: =199
+            ZIndex: =5
+
+        Rectangle8_12 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =74
+            OnSelect: =If(ThisItem.ApprovalStatus = "HOGverification" Or ThisItem.ApprovalStatus = "HODverification" Or ThisItem.ApprovalStatus = "Commissioned", true)
+            Visible: =If(ThisItem.ApprovalStatus = "HODverification", true)
+            Width: =217
+            X: =199
+            ZIndex: =6
+
+        hod_1 As button:
+            DisabledBorderColor: =RGBA(219, 219, 219, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(99, 139, 44, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =44
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Set(
+                    VarSpinnerFuda,
+                    true
+                );
+                Patch(
+                    ProjectsWorkProcess,
+                    ThisItem,
+                    {ApprovalStatus: "Commissioned"}
+                );
+                Patch(
+                    CommissionedProjects,
+                    Defaults(CommissionedProjects),
+                    {ProjectName: ThisItem.ProjectName},
+                    {ProjectNumber: ThisItem.ProjectNumber},
+                    {ProjectType: ThisItem.ProjectType},
+                    {ProjectLocation: ThisItem.ProjectLocation},
+                    {Others: ThisItem.Others},
+                    {Capacity: ThisItem.Capacity},
+                    {VtRatio: ThisItem.VtRatio},
+                    {LengthOfCable: ThisItem.LengthOfCable},
+                    {SizeOfCable: ThisItem.SizeOfCable},
+                    {TypeOfCable: ThisItem.TypeOfCable},
+                    {Feeder: ThisItem.Feeder},
+                    {InjSubstation: ThisItem.InjSubstation},
+                    {District: ThisItem.District},
+                    {Contractor: ThisItem.Contractor},
+                    {ContractorsNumber: ThisItem.ContractorsNumber},
+                    {Teamlead: ThisItem.TeamLead},
+                    {HOGroup: ThisItem.HOGroup},
+                    {HeadOfGroup: ThisItem.HeadOfGroup},
+                    {ProjectEngineer: ThisItem.ProjectEngineer},
+                    {ProjectEngineerEmail: ThisItem.ProjectEngineerEmail},
+                    {DateAssignedToPE: ThisItem.DateAssignedToPE},
+                    {ApprovalStatus: ThisItem.ApprovalStatus},
+                    {ApprovalNumber: ThisItem.ApprovalNumber},
+                    {MIS: ThisItem.MIS},
+                    {dateInspected: ThisItem.dateInspected},
+                    {Feedback: ThisItem.Feedback},
+                    {Feed: ThisItem.Feed},
+                    {meter: Label51_7.Text},
+                    {projID: fudadetails.ID},
+                    {commercial: Label52_7.Text},
+                    {cordinates: Label60_15.Text},
+                    {bank: LabelBank_5.Text},
+                    {bankaccount: LabelNumber_7.Text}
+                );
+                Set(
+                    VarSpinnerFuda,
+                    false
+                )
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =9
+            Text: ="COMMISSION"
+            Visible: =If(ThisItem.Feed="Nerc"&&ThisItem.ProjectNumber in compI.ProjectNumber&&ThisItem.ProjectNumber in compM.ProjectNumber&&ThisItem.ProjectNumber in compP.ProjectNumber&&ThisItem.ProjectNumber in SurveyReportProjects.projectNumber&&Useremail=HodMail, true , false )
+            Width: =150
+            X: =443
+            Y: =14
+            ZIndex: =7
+
+        Rectangle8_13 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =74
+            OnSelect: =If(ThisItem.ApprovalStatus = "HOGverification" Or ThisItem.ApprovalStatus = "HODverification" Or ThisItem.ApprovalStatus = "Commissioned", true)
+            Visible: =If(ThisItem.ApprovalStatus = "Commissioned", true)
+            Width: =183
+            X: =416
+            ZIndex: =8
+
+    docButton_1 As button:
+        BorderThickness: =0
+        Color: =RGBA(99, 139, 44, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(187, 221, 140, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =768
+        HoverBorderColor: =Transparent
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =Navigate(docGallery, ScreenTransition.CoverRight)
+        PressedBorderColor: =Transparent
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Size: =35
+        Text: |-
+            ="D
+            O
+            C
+            U
+            M
+            E
+            N
+            T
+            S"
+        Width: =182
+        X: =1184
+        ZIndex: =24
+
+    Label18_3 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Lato
+        Height: =18
+        Italic: =true
+        OnSelect: =
+        PaddingLeft: =0
+        Size: =13
+        Text: ="Bank Draft Detais"
+        Width: =234
+        X: =102
+        Y: =93
+        ZIndex: =27
+
+    Label17_3 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Lato
+        Height: =19
+        Italic: =true
+        OnSelect: =
+        PaddingLeft: =0
+        Size: =13
+        Text: ="Outage Details"
+        Width: =186
+        X: =102
+        Y: =309
+        ZIndex: =28
+
+    Label17_4 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Lato
+        Height: =19
+        Italic: =true
+        OnSelect: =
+        PaddingLeft: =0
+        Size: =13
+        Text: ="I & QA Feedback"
+        Width: =186
+        X: =102
+        Y: =510
+        ZIndex: =29
+
+    Label17_5 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Lato
+        Height: =19
+        Italic: =true
+        OnSelect: =
+        PaddingLeft: =0
+        Size: =13
+        Text: ="Other Departments"
+        Width: =186
+        X: =564
+        Y: =92
+        ZIndex: =30
+
+    Label17_6 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Lato
+        Height: =19
+        Italic: =true
+        OnSelect: =
+        PaddingLeft: =0
+        Size: =13
+        Text: ="Survey Feedback from PE"
+        Width: =186
+        X: =894
+        Y: =92
+        ZIndex: =31
+
+    Label17_7 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Lato
+        Height: =19
+        Italic: =true
+        OnSelect: =
+        PaddingLeft: =0
+        Size: =13
+        Text: ="P&T Feedback"
+        Width: =186
+        X: =571
+        Y: =409
+        ZIndex: =32
+
+    "'var spinner for fuda_1' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =52
+
+        Rectangle11_9 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(230, 230, 230, .7)
+            Height: =768
+            Visible: =VarSpinnerFuda
+            Width: =1366
+            ZIndex: =25
+
+        Image1_9 As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =434
+            Image: ='Spinner-1s-231px (1)'
+            Visible: =VarSpinnerFuda
+            Width: =434
+            X: =459
+            Y: =167
+            ZIndex: =26
+

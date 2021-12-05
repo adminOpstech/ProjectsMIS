@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "eae4a479-659b-4afb-ae48-a12f47160b4b",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "NewProjectEngineerNotification",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

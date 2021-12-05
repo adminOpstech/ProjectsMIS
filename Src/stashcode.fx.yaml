@@ -1,0 +1,244 @@
+stashcode As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    menutraygalleryforapp_1 As gallery.galleryVertical:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(227, 234, 243, 1)
+        Height: =690
+        Items: |-
+            =If(
+                Lower(UserMail) = "jonathan.lawani@ekedp.com" Or Lower(UserMail) = "kingsley.udeagha@ekedp.com" Or Lower(UserMail) = "oluwasanmi.fadeyibi@ekedp.com" Or Lower(UserMail) = "rotimi.alli@ekedp.com" Or Lower(UserMail) = "daniel.akagu@ekedp.com" Or Lower(UserMail) = "abimbola.gbede@ekedp.com",
+                Table(
+                    {
+                        Title: "Project Records",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.ComputerDesktop
+                    },
+                    {
+                        Title: "New Approvals",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Check
+                    },
+                    {
+                        Title: "Pending Payments",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.ListScrollWatchlist
+                    },
+                    {
+                        Title: "Assign Projects",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.People
+                    },
+                    {
+                        Title: "Outage Request",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Tag
+                    },
+                    {
+                        Title: "Site Inspection",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.LevelsLayersItems
+                    },
+                    {
+                        Title: "Metering",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Lock
+                    },
+                    {
+                        Title: "Accounts",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.LogJournal
+                    },
+                    {
+                        Title: "P&T",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Tools
+                    },
+                    {
+                        Title: "I&QA",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.DocumentWithContent
+                    },
+                    {
+                        Title: "GIS",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Post
+                    },
+                    {
+                        Title: "Ready For Commission",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Clock
+                    }
+                ),
+                Lower(UserMail) = "angela.ukhokhoakhe@ekedp.com" Or Lower(UserMail) = "ubadinma.madukife@ekedp.com" Or Lower(UserMail) = "ibukun.sholola@ekedp.com" Or Lower(UserMail) = "yakubu.odior@ekedp.com",
+                Table(
+                    {
+                        Title: "Project Records",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.ComputerDesktop
+                    },
+                    {
+                        Title: "Assign Projects",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.People
+                    },
+                    {
+                        Title: "Outage Request",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Tag
+                    },
+                    {
+                        Title: "Site Inspection",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.LevelsLayersItems
+                    },
+                    {
+                        Title: "Metering",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Lock
+                    },
+                    {
+                        Title: "Accounts",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.LogJournal
+                    },
+                    {
+                        Title: "P&T",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Tools
+                    },
+                    {
+                        Title: "I&QA",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.DocumentWithContent
+                    },
+                    {
+                        Title: "GIS",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Post
+                    },
+                    {
+                        Title: "Ready For Commission",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Clock
+                    }
+                ),
+                Table(
+                    {
+                        Title: "Project Records",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.ComputerDesktop
+                    },
+                    {
+                        Title: "Outage Request",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Tag
+                    },
+                    {
+                        Title: "Site Inspection",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.LevelsLayersItems
+                    },
+                    {
+                        Title: "Metering",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Lock
+                    },
+                    {
+                        Title: "Accounts",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.LogJournal
+                    },
+                    {
+                        Title: "P&T",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Tools
+                    },
+                    {
+                        Title: "I&QA",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.DocumentWithContent
+                    },
+                    {
+                        Title: "GIS",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Post
+                    },
+                    {
+                        Title: "Ready For Commission",
+                        Screen: App.ActiveScreen,
+                        Icon: Icon.Clock
+                    }
+                )
+            )
+        Layout: =Layout.Vertical
+        OnSelect: =Set(shortDetails, false) 
+        ShowScrollbar: =false
+        TemplateSize: =52
+        Visible: =true//showMenuTab
+        Width: =203
+        X: =40
+        Y: =36
+        ZIndex: =1
+
+        background_2 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =48
+            OnSelect: =Select(Parent); 
+            Visible: =ThisItem.IsSelected
+            Width: =183
+            X: =3
+            Y: =4
+            ZIndex: =1
+
+        menuLabel_2 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =41
+            OnSelect: |-
+                =UpdateContext({shortDetails: false})
+            Size: =11
+            Text: =ThisItem.Title
+            Width: =130
+            X: =58
+            Y: =7
+            ZIndex: =2
+
+        menuIcon_2 As icon.Add:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(128, 128, 128, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =33
+            Icon: =ThisItem.Icon
+            OnSelect: |-
+                =UpdateContext({shortDetails: false})
+            Width: =33
+            X: =10
+            Y: =9
+            ZIndex: =3
+
+    Label16 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =668
+        Size: =13
+        Text: ="SubmitForm(detailsOfApprovedProjects);Notify(    ""BANK DRAFT SUCCESFULLY SAVED"",    NotificationType.Success,    2000);NotifyHOG.Run(    detailsOfApprovedProjects.LastSubmit.HOGroup.Email,    detailsOfApprovedProjects.LastSubmit.HOGroup.DisplayName,    detailsOfApprovedProjects.LastSubmit.ProjectNumber,    detailsOfApprovedProjects.LastSubmit.ProjectName,    detailsOfApprovedProjects.LastSubmit.ProjectType.Value,    detailsOfApprovedProjects.LastSubmit.TeamLead.Email)"
+        Width: =287
+        X: =255
+        Y: =36
+        ZIndex: =2
+
+    HtmlText1 As htmlViewer:
+        Height: =636
+        HtmlText: =
+        Width: =1111
+        X: =255
+        ZIndex: =3
+

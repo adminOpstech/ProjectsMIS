@@ -1,0 +1,151 @@
+projectEngineersReport As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    Icon1 As icon.BackArrow:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =41
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(projectsMainPage)
+        Width: =41
+        X: =40
+        Y: =40
+        ZIndex: =2
+
+    "Gallery3 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(210, 215, 218, 1)
+        Height: =200
+        Items: =Filter('Sub Groups', Text = "Engineer")
+        TemplatePadding: =0
+        TemplateSize: =101
+        Width: =1123
+        X: =120
+        Y: =502
+        ZIndex: =3
+
+        Image2 As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =69
+            Image: =ThisItem.PE.Picture
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =40
+            RadiusBottomRight: =40
+            RadiusTopLeft: =40
+            RadiusTopRight: =40
+            Width: =Parent.TemplateWidth - 32
+            X: =(Parent.TemplateWidth / 2) - (Self.Width / 2)
+            Y: =26
+            ZIndex: =1
+
+        Title1 As label:
+            Align: =Align.Center
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =9
+            Text: =ThisItem.PE.DisplayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =85
+            X: =8
+            Y: =119
+            ZIndex: =2
+
+        Label20 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =CountRows(Filter(ProjectsWorkProcess, ThisItem.PE.Email = ProjectEngineerEmail)) &"/" & CountRows(Filter(CommissionedProjects, ProjectEngineerEmail = ThisItem.PE.Email))
+            Width: =101
+            Y: =160
+            ZIndex: =3
+
+    "Gallery3_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(232, 244, 217, 1)
+        Height: =192
+        Items: =Filter('Sub Groups', Text = "HOG")
+        TemplatePadding: =0
+        TemplateSize: =101
+        Width: =406
+        X: =120
+        Y: =277
+        ZIndex: =4
+
+        Image2_1 As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =85
+            Image: =ThisItem.PE.Picture
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =40
+            RadiusBottomRight: =40
+            RadiusTopLeft: =40
+            RadiusTopRight: =40
+            Width: =85
+            X: =8
+            Y: =16
+            ZIndex: =1
+
+        Title1_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =9
+            Text: =ThisItem.PE.DisplayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =85
+            X: =8
+            Y: =119
+            ZIndex: =2
+
+        Label21 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =CountRows(Filter(ProjectsWorkProcess, ThisItem.PE.Email = HeadOfGroup)) &"/" & CountRows(Filter(CommissionedProjects, ThisItem.PE.Email = HeadOfGroup))
+            Width: =101
+            Y: =148
+            ZIndex: =3
+
+    dashboard_1 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(228, 221, 235, 1)
+        Height: =53
+        PaddingLeft: =1
+        Size: =11.5
+        Text: |-
+            ="           " & "TOTAL : " & CountRows(ProjectsWorkProcess.ID) & "/" & CountRows(CommissionedProjects.ID) & "          SURVEYED : " & CountRows(SurveyReportProjects.ID) & "      METERED : " & CountRows(meteringProjects.ID) & " / " & Count(compM.ID) & "          ACCOUNTS : " & CountRows(AccountsProjects.ID) & " / " & Count(compA.ID) & "       P&T : " & CountRows(PandTRecordProjects.ID) & " / " & Count(compP.ID) & "          I&QA : " & CountRows(IandQAProjects.ID) & " / " & Count(compI.ID) & "          GIS : " & CountRows(GISProjects.ID) & " / " & Count(compG.ID)
+        Width: =962
+        X: =195
+        Y: =40
+        ZIndex: =5
+

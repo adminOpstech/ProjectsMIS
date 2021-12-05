@@ -1,0 +1,101 @@
+welcome As screen:
+    BackgroundImage: ='Projects Wallpaper 2'
+    Fill: |-
+        =RGBA(
+            255,
+            255,
+            255,
+            1
+        )
+    Height: =Max(App.Height, App.DesignHeight)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Label43 As label:
+        Align: =Align.Right
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =768
+        PaddingBottom: =0
+        PaddingRight: =60
+        PaddingTop: =335
+        Size: =10
+        Text: ="V2.1"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =1366
+        ZIndex: =5
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =616
+        Y: =40
+        ZIndex: =5
+
+        welcomeText As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =WhiteSmoke
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Bold
+            Height: =Parent.Height
+            PaddingRight: =50
+            Size: =80
+            Text: ="welcome"
+            Visible: =true// If(Timer3.Value < 2000, true, false)
+            Width: =Parent.Width
+            ZIndex: =3
+
+        userNameText As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =DarkOrange
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Bold
+            Height: =768
+            Italic: =true
+            PaddingLeft: =70
+            PaddingRight: =60
+            PaddingTop: =550
+            Size: =17
+            Text: =User().FullName
+            Visible: =true// If(Timer3.Value < 2000, true, false)
+            Width: =1366
+            ZIndex: =4
+
+    Button3 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =DarkOrange
+        Font: =Font.Georgia
+        FontWeight: =FontWeight.Bold
+        Height: =41
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        OnSelect: |-
+            =Navigate(NavRightScreen); Notify(
+                "Welcome",
+                NotificationType.Success,
+                1000
+            );
+        PressedColor: =White
+        PressedFill: =ColorFade(Orange, -10%)
+        RadiusBottomLeft: =
+        RadiusBottomRight: =
+        RadiusTopLeft: =
+        RadiusTopRight: =
+        Size: =15
+        Text: ="Log In"
+        Width: =156
+        X: =1144
+        Y: =676
+        ZIndex: =6
+

@@ -1,0 +1,63 @@
+menuTray As CanvasComponent:
+    Fill: =
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    menutraygallery As gallery.galleryVertical:
+        AccessibleLabel: ="menu tray"
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(227, 234, 243, 1)
+        Height: =533
+        Items: |-
+            =Table({Title: "Approvals", Screen: App.ActiveScreen, Icon: Icon.Check}, {Title: "Project Records", Screen: App.ActiveScreen, Icon: Icon.ListScrollWatchlist}, {Title: "Assign Projects", Screen: App.ActiveScreen, Icon: Icon.People},{Title: "Outage Request", Screen: App.ActiveScreen, Icon: Icon.Tag}, {Title: "Site Inspection", Screen: App.ActiveScreen, Icon: Icon.LevelsLayersItems}, {Title: "Metering", Screen: App.ActiveScreen, Icon: Icon.Lock}, {Title: "P&T", Screen: App.ActiveScreen, Icon: Icon.Tools}, {Title: "I&QA", Screen: App.ActiveScreen, Icon: Icon.DocumentWithContent}, {Title: "GIS", Screen: App.ActiveScreen, Icon: Icon.Post})
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TabIndex: =0
+        TemplateSize: =52
+        Width: =203
+        X: =24
+        Y: =60
+        ZIndex: =1
+
+        background As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =48
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =175
+            X: =8
+            Y: =8
+            ZIndex: =1
+
+        menuLabel As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =41
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: =ThisItem.Title
+            Width: =130
+            X: =58
+            Y: =11
+            ZIndex: =2
+
+        menuIcon As icon.Add:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(128, 128, 128, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =33
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent)
+            Width: =33
+            X: =17
+            Y: =16
+            ZIndex: =3
+

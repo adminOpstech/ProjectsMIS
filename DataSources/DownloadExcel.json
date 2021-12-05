@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "5ee91101-0330-4c70-ada2-75236871a660",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "DownloadExcel",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

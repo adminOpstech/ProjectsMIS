@@ -1,0 +1,643 @@
+InspectionExtension As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: |-
+        =UpdateContext({inspecPatch: VarRecordInspection}); Refresh(InpectionFeedback);
+
+    homeButtonIcon_4 As icon.Home:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =47
+        Icon: =Icon.BackArrow
+        OnSelect: =Back(ScreenTransition.CoverRight)
+        Width: =47
+        X: =23
+        Y: =36
+        ZIndex: =8
+
+    BankDraftDisplayGalleryCopy_1 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(245, 246, 247, 0.2)
+        Height: =209
+        Items: =Filter('Bank Drafts', projectNumber = inspecPatch.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =202
+        Width: =516
+        X: =613
+        Y: =114
+        ZIndex: =16
+
+        LabelBank_2 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(232, 244, 217, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Name
+            Width: =500
+            ZIndex: =5
+
+        LabelNumber_2 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(232, 244, 217, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.AccNumber
+            Width: =500
+            Y: =50
+            ZIndex: =6
+
+        LabelAmount_2 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(232, 244, 217, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Amount
+            Width: =500
+            Y: =102
+            ZIndex: =7
+
+        LabelDate_2 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Date
+            Width: =500
+            Y: =155
+            ZIndex: =8
+
+    BankDraftDisplayGalleryCopy_2 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(245, 246, 247, 0.2)
+        Height: =211
+        Items: =Filter(outageRequestList, Number = inspecPatch.ProjectNumber)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =153
+        Width: =507
+        X: =70
+        Y: =114
+        ZIndex: =17
+
+        LabelNumber_3 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(253, 222, 207, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Outagepurpose
+            Width: =500
+            ZIndex: =6
+
+        LabelAmount_3 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(253, 222, 207, 1)
+            Font: =Font.'Lato Light'
+            Height: =43
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Date
+            Width: =500
+            Y: =52
+            ZIndex: =7
+
+        LabelDate_3 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(253, 222, 207, 1)
+            Font: =Font.'Lato Light'
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: =ThisItem.Duration
+            Width: =500
+            Y: =105
+            ZIndex: =8
+
+    Button8 As button:
+        BorderThickness: =0
+        Color: =RGBA(99, 139, 44, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(187, 221, 140, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =768
+        HoverBorderColor: =Transparent
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =Set(varDoc, VarRecordInspection); Navigate(docGallery, ScreenTransition.CoverRight)
+        PressedBorderColor: =Transparent
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Size: =35
+        Text: |-
+            ="D
+            O
+            C
+            U
+            M
+            E
+            N
+            T
+            S"
+        Width: =182
+        X: =1184
+        ZIndex: =23
+
+    blockAccountsButton As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(255, 255, 255, 0.3)
+        Height: =77
+        Visible: =If(IsBlank(customerGallery.Selected.customerName), true, false)
+        Width: =205
+        X: =299
+        Y: =678
+        ZIndex: =26
+
+    Label23_1 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =34
+        Italic: =true
+        OnSelect: =
+        Size: =13
+        Text: ="Bank Draft Details"
+        X: =617
+        Y: =83
+        ZIndex: =27
+
+    Label22_2 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Italic: =true
+        OnSelect: =
+        Size: =13
+        Text: ="Outage Details"
+        X: =70
+        Y: =79
+        ZIndex: =28
+
+    Label18 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(162, 173, 181, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =43
+        Size: =12
+        Text: ="CUSTOMER DETAILS"
+        Width: =1040
+        X: =77
+        Y: =362
+        ZIndex: =33
+
+    customerGallery As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Height: =199
+        Items: =LookUp(externalstakeholders, inspecPatch.ProjectNumber = Number)
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =194
+        Width: =1054
+        X: =70
+        Y: =405
+        ZIndex: =34
+
+        TextInput3 As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.customerName
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(IsBlank(ThisItem.customerName), Edit, View)
+            Fill: =RGBA(245, 246, 247, 1)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =13
+            Width: =500
+            X: =3
+            Y: =40
+            ZIndex: =1
+
+        TextInput5 As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.customerNumber
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(IsBlank(ThisItem.customerName), Edit, View)
+            Fill: =RGBA(245, 246, 247, 1)
+            FocusedBorderThickness: =4
+            Format: =TextFormat.Number
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =13
+            Width: =500
+            X: =3
+            Y: =142
+            ZIndex: =2
+
+        TextInput6 As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.customerEmail
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(IsBlank(ThisItem.customerName), Edit, View)
+            Fill: =RGBA(245, 246, 247, 1)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =13
+            Width: =450
+            X: =587
+            Y: =40
+            ZIndex: =3
+
+        Label17 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: ="Name"
+            Width: =450
+            X: =3
+            ZIndex: =4
+
+        Label19 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: ="Phone Number"
+            Width: =450
+            X: =3
+            Y: =102
+            ZIndex: =5
+
+        Label22 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =13
+            Text: ="Email"
+            Width: =450
+            X: =587
+            ZIndex: =6
+
+        Icon5 As icon.Save:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(IsBlank(ThisItem.customerName), Edit, Disabled)
+            Icon: =Icon.Save
+            OnSelect: |-
+                =Patch(externalstakeholders, LookUp(externalstakeholders, inspecPatch.ProjectNumber = Number), {customerName: TextInput3.Text}, {customerEmail: TextInput6.Text}, {customerNumber: TextInput5.Text})
+            Visible: =If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, true, false)
+            X: =973
+            Y: =121
+            ZIndex: =7
+
+    Label18_2 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(162, 173, 181, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =43
+        Size: =12
+        Text: ="NOTIFY OTHER DEPARTMENTS"
+        Width: =1040
+        X: =77
+        Y: =628
+        ZIndex: =35
+
+    "'var spinner for Inspection' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =35
+
+        Rectangle11_7 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(230, 230, 230, .7)
+            Height: =768
+            Visible: =VarSpinnerInspect
+            Width: =1366
+            ZIndex: =24
+
+        Image1_7 As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =434
+            Image: ='Spinner-1s-231px (1)'
+            Visible: =VarSpinnerInspect
+            Width: =434
+            X: =466
+            Y: =167
+            ZIndex: =25
+
+    StakeholdersNotification As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =35
+
+        iandqa As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, Edit, Disabled)
+            Fill: =RGBA(100, 118, 132, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Patch(
+                    IandQAProjects,
+                    Defaults(IandQAProjects),
+                    {ProjectNumber: VarRecordInspection.ProjectNumber},
+                    {ProjectName: VarRecordInspection.ProjectName},
+                    {projID: VarRecordInspection.ID},
+                    {ProjectType: VarRecordInspection.ProjectType},
+                    {Capacity: VarRecordInspection.Capacity},
+                    {VtRatio: VarRecordInspection.VtRatio},
+                    {District: VarRecordInspection.District},
+                    {Feeder: VarRecordInspection.Feeder},
+                    {InjSubstation: VarRecordInspection.InjSubstation},
+                    {ProjectLocation: VarRecordInspection.ProjectLocation},
+                    {ContractorsNumber: VarRecordInspection.ContractorsNumber},
+                    {Contractor: VarRecordInspection.Contractor},
+                    {loc: VarRecordInspection.LengthOfCable},
+                    {soc: VarRecordInspection.SizeOfCable},
+                    {toc: VarRecordInspection.TypeOfCable},
+                    {ProjectEngineer: VarRecordInspection.ProjectEngineer},
+                    {'Status (Status0)': "Pending"}
+                );
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =10
+            Text: ="I&QA"
+            Visible: =If(VarRecordInspection.ProjectNumber exactin IandQAProjects.ProjectNumber, false, true)
+            Width: =177
+            X: =932
+            Y: =697
+            ZIndex: =1
+
+        pandt As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, Edit, Disabled)
+            Fill: =RGBA(100, 118, 132, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Patch(
+                    PandTRecordProjects,
+                    Defaults(PandTRecordProjects),
+                    {ProjectNumber: VarRecordInspection.ProjectNumber},
+                    {ProjectName: VarRecordInspection.ProjectName},
+                    {projID: VarRecordInspection.ID},
+                    {ProjectType: VarRecordInspection.ProjectType},
+                    {Capacity: VarRecordInspection.Capacity},
+                    {VtRatio: VarRecordInspection.VtRatio},
+                    {District: VarRecordInspection.District},
+                    {Feeder: VarRecordInspection.Feeder},
+                    {InjSubstation: VarRecordInspection.InjSubstation},
+                    {ProjectLocation: VarRecordInspection.ProjectLocation},
+                    {ContractorsNumber: VarRecordInspection.ContractorsNumber},
+                    {Contractor: VarRecordInspection.Contractor},
+                    {loc: VarRecordInspection.LengthOfCable},
+                    {soc: VarRecordInspection.SizeOfCable},
+                    {toc: VarRecordInspection.TypeOfCable},
+                    {ProjectEngineer: VarRecordInspection.ProjectEngineer},
+                    {'Status (Status0)': "Pending"}
+                );
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =10
+            Text: ="P&T"
+            Visible: =If(VarRecordInspection.ProjectNumber exactin PandTRecordProjects.ProjectNumber, false, true)
+            Width: =177
+            X: =725
+            Y: =697
+            ZIndex: =2
+
+        gis As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, Edit, Disabled)
+            Fill: =RGBA(100, 118, 132, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Patch(
+                    GISProjects,
+                    Defaults(GISProjects),
+                    {ProjectNumber: VarRecordInspection.ProjectNumber},
+                    {ProjectName: VarRecordInspection.ProjectName},
+                    {projID: VarRecordInspection.ID},
+                    {ProjectType: VarRecordInspection.ProjectType},
+                    {Capacity: VarRecordInspection.Capacity},
+                    {VtRatio: VarRecordInspection.VtRatio},
+                    {District: VarRecordInspection.District},
+                    {Feeder: VarRecordInspection.Feeder},
+                    {InjSubstation: VarRecordInspection.InjSubstation},
+                    {ProjectLocation: VarRecordInspection.ProjectLocation},
+                    {ContractorsNumber: VarRecordInspection.ContractorsNumber},
+                    {Contractor: VarRecordInspection.Contractor},
+                    {loc: VarRecordInspection.LengthOfCable},
+                    {soc: VarRecordInspection.SizeOfCable},
+                    {toc: VarRecordInspection.TypeOfCable},
+                    {ProjectEngineer: VarRecordInspection.ProjectEngineer},
+                    {'Status (Status0)': "Pending"}
+                );
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =10
+            Text: ="GIS"
+            Visible: =If(VarRecordInspection.ProjectNumber exactin GISProjects.ProjectNumber, false, true)
+            Width: =177
+            X: =518
+            Y: =697
+            ZIndex: =3
+
+        accounts As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, Edit, Disabled)
+            Fill: =RGBA(100, 118, 132, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Patch(
+                    AccountsProjects,
+                    Defaults(AccountsProjects),
+                    {ProjectNumber: VarRecordInspection.ProjectNumber},
+                    {ProjectName: VarRecordInspection.ProjectName},
+                    {projID: VarRecordInspection.ID},
+                    {ProjectType: VarRecordInspection.ProjectType},
+                    {Capacity: VarRecordInspection.Capacity},
+                    {VtRatio: VarRecordInspection.VtRatio},
+                    {District: VarRecordInspection.District},
+                    {Feeder: VarRecordInspection.Feeder},
+                    {InjSubstation: VarRecordInspection.InjSubstation},
+                    {ProjectLocation: VarRecordInspection.ProjectLocation},
+                    {ContractorsNumber: VarRecordInspection.ContractorsNumber},
+                    {Contractor: VarRecordInspection.Contractor},
+                    {loc: VarRecordInspection.LengthOfCable},
+                    {soc: VarRecordInspection.SizeOfCable},
+                    {toc: VarRecordInspection.TypeOfCable},
+                    {ProjectEngineer: VarRecordInspection.ProjectEngineer},
+                    {'Status (Status0)': "Pending"}
+                );
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =10
+            Text: ="Accounts"
+            Visible: =If(VarRecordInspection.ProjectNumber exactin AccountsProjects.ProjectNumber, false, true)
+            Width: =177
+            X: =313
+            Y: =697
+            ZIndex: =4
+
+        metering As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, Edit, Disabled)
+            Fill: =RGBA(100, 118, 132, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: |-
+                =Patch(
+                    meteringProjects,
+                    Defaults(meteringProjects),
+                    {ProjectNumber: VarRecordInspection.ProjectNumber},
+                    {ProjectName: VarRecordInspection.ProjectName},
+                    {projID: VarRecordInspection.ID},
+                    {ProjectType: VarRecordInspection.ProjectType},
+                    {Capacity: VarRecordInspection.Capacity},
+                    {VtRatio: VarRecordInspection.VtRatio},
+                    {District: VarRecordInspection.District},
+                    {Feeder: VarRecordInspection.Feeder},
+                    {InjSubstation: VarRecordInspection.InjSubstation},
+                    {ProjectLocation: VarRecordInspection.ProjectLocation},
+                    {ContractorsNumber: VarRecordInspection.ContractorsNumber},
+                    {Contractor: VarRecordInspection.Contractor},
+                    {loc: VarRecordInspection.LengthOfCable},
+                    {soc: VarRecordInspection.SizeOfCable},
+                    {toc: VarRecordInspection.TypeOfCable},
+                    {ProjectEngineer: VarRecordInspection.ProjectEngineer},
+                    {'Status (Status0)': "Pending"}
+                )
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =10
+            Text: ="Metering"
+            Visible: =If(VarRecordInspection.ProjectNumber exactin meteringProjects.ProjectNumber, false, true)
+            Width: =205
+            X: =79
+            Y: =697
+            ZIndex: =5
+
+        Rectangle9 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =89
+            Visible: =false//If(Lower(UserMail) = VarRecordInspection.ProjectEngineerEmail, false, true)
+            Width: =1078
+            X: =51
+            Y: =672
+            ZIndex: =6
+

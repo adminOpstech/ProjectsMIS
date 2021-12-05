@@ -1,0 +1,156 @@
+MenuNav As CanvasComponent:
+    ExpandMenu: =false
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =MenuNav.MenuHeight
+    MenuBKDcolor: =RGBA(227, 234, 243, 1)
+    MenuColor: =RGBA(0, 0, 0, 1)
+    MenuFillColor: =GoldenRod
+    MenuHeight: =MenuNav.MenuHeightInput
+    MenuHeightInput: =1000
+    MenuItems: |-
+        =Table(
+            {
+                MenuLabel: "Home",
+                MenuIcon: Icon.Home,
+                ScreenNav: App.ActiveScreen,
+                MenuID: 1
+            },{
+                MenuLabel: "Project Records",
+                MenuIcon: Icon.Database,
+                ScreenNav: App.ActiveScreen,
+                MenuID: 2
+            },{
+                MenuLabel: "Approvals",
+                MenuIcon: Icon.Check,
+                ScreenNav: App.ActiveScreen,
+                MenuID: 3
+            }
+        )
+    MenuWidth: =MenuNav.MenuWidthInput
+    MenuWidthInput: =200
+    OnReset: =Set(ShowMenu, MenuNav.ExpandMenu)
+    Width: =MenuNav.MenuWidth
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    IconHamburger As icon.Hamburger:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(ShowMenu, !ShowMenu);
+        PaddingLeft: =7
+        PaddingRight: =5
+        TabIndex: =0
+        ZIndex: =1
+
+    GalMenu As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =White
+        Height: =Parent.Height - IconHamburger.Height
+        Items: =MenuNav.MenuItems
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TabIndex: =
+        TemplateSize: =66
+        Width: =200
+        Y: =IconHamburger.Height + 10
+        ZIndex: =2
+
+        MenuBackBoard As button:
+            Color: =Transparent
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(ThisItem.ScreenNav = App.ActiveScreen, ColorFade(MenuNav.MenuBKDcolor, -0.1), MenuNav.MenuBKDcolor)
+            FocusedBorderColor: =Transparent
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            HoverBorderColor: =Transparent
+            HoverColor: =Transparent
+            HoverFill: =Transparent
+            OnSelect: =Navigate(ThisItem.ScreenNav, ScreenTransition.CoverRight)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Transparent
+            PressedColor: =Transparent
+            PressedFill: =Transparent
+            RadiusBottomLeft: =
+            RadiusBottomRight: =
+            RadiusTopLeft: =
+            RadiusTopRight: =
+            Size: =15
+            Text: ="Button"
+            Width: =MenuNav.MenuWidth - 10
+            ZIndex: =1
+
+        RecMenu As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =MenuNav.MenuFillColor
+            Height: =MenuBackBoard.Height
+            OnSelect: =Select(Parent)
+            Visible: =false// ThisItem.ScreenNav = App.ActiveScreen
+            Width: =3
+            ZIndex: =2
+
+        IconMenu As icon.Save:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =If(ThisItem.ScreenNav = App.ActiveScreen, DarkGoldenRod, MenuNav.MenuColor)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =6
+            Height: =36
+            Icon: =ThisItem.MenuIcon
+            OnSelect: =Select(Parent)
+            Width: =30
+            X: =15
+            Y: =15
+            ZIndex: =3
+
+        LbMenu As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =MenuNav.MenuColor
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =31
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.MenuLabel
+            Width: =124
+            X: =54
+            Y: =20
+            ZIndex: =4
+
+        ButMenu As button:
+            Color: =Transparent
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =Transparent
+            FocusedBorderColor: =Transparent
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            HoverBorderColor: =Transparent
+            HoverColor: =Transparent
+            HoverFill: =Transparent
+            OnSelect: =Navigate(ThisItem.ScreenNav, ScreenTransition.None)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Transparent
+            PressedColor: =Transparent
+            PressedFill: =Transparent
+            RadiusBottomLeft: =
+            RadiusBottomRight: =
+            RadiusTopLeft: =
+            RadiusTopRight: =
+            Size: =15
+            Text: ="Button"
+            Width: =MenuNav.MenuWidth - 10
+            ZIndex: =6
+

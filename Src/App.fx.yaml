@@ -1,0 +1,83 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =Concurrent(
+            Set(
+                Useremail,
+                User().Email
+            ),
+            Set(
+                HodMail,
+                "jonathan.lawani@ekedp.com"
+            )
+        );
+        Concurrent(
+            ClearCollect(allOldprojects, projectsDepartment),
+            ClearCollect(
+                projectsCollection,
+                {
+                    Nump: "",
+                    Namep: "",
+                    Capacityp: "0",
+                    VTp: "0",
+                    Feederp: "",
+                    Locatep: "",
+                    Unitp: "",
+                    Typep: "",
+                    projectManagerp: "",
+                    Contracp: "0",
+                    statusp: "",
+                    showSaveButton: true,
+                    ttt: true,
+                    gpsPopup: false
+                }
+            ),
+            If(
+                Lower(Useremail) = "saula.solarin@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    wholeProject
+                ),
+                Lower(Useremail) = "kingsley.udeagha@ekedp.com" Or Lower(Useremail) = "okemefuna.nwabudike@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    GIS
+                ),
+                Lower(Useremail) = "lawal.taiwo@ekedp.com" Or Lower(Useremail) = "anjola.jaiyeola@ekedp.com" Or Lower(Useremail) = "inyene.etukudo@ekedp.com" Or User().Email = "samuel.umeofia@ekedp.com" Or Lower(Useremail) = "damilola.ojo@ekedp.com" Or Lower(Useremail) = "kelechi.njoku@ekedp.com" Or Lower(Useremail) = "vincent.abolarin@ekedp.com" Or Lower(Useremail) = "yusuph.amure@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    teamSreenGallery
+                ),
+                Lower(Useremail) = "ebubechukwu.ihevueme@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    PandT
+                ),
+                Lower(Useremail) = "olabanji.fagbamila@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    IandQA
+                ),
+                Lower(Useremail) = "bukola.badaki@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    Metering
+                ),
+                Lower(Useremail) = "tomiwa.ojo@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    Accounts
+                ),
+                Lower(Useremail) = "bernard.olumoroti@ekedp.com" Or Lower(Useremail) = "henry.ukoh@ekedp.com" Or Lower(Useremail) = "shola.ojo@ekedp.com" Or Lower(Useremail) = "adedoyin.adetifa@ekedp.com" Or Lower(Useremail) = "onboarding.newserviceteam@ekedp.com" Or Lower(Useremail) = "ohita.amaize@ekedp.com" Or Lower(Useremail) = "rasheed.akinbitan@ekedp.com" Or Lower(Useremail) = "clara.olutola@ekedp.com" Or Lower(Useremail) = "omololu.olawoye@ekedp.com",
+                Set(
+                    NavRightScreen,
+                    wholeProjectTeamMembers
+                ),
+                Set(
+                    NavRightScreen,
+                    projectsMainPage
+                ),
+                ScreenTransition.CoverRight
+            )
+        )
+

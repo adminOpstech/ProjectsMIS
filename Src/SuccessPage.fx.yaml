@@ -1,0 +1,215 @@
+"SuccessPage As screen.'tabletLayout_Success_ver3.0'":
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: =Set(longGate, true)
+
+    MenuProjectsPage_1 As MenuNav:
+        ExpandMenu: =true
+        Height: =MenuProjectsPage_1.MenuHeight
+        MenuHeight: =MenuProjectsPage_1.MenuHeightInput
+        MenuHeightInput: =730
+        MenuItems: |-
+            =If(
+                Lower(UserMail) = "jonathan.lawani@ekedp.com" Or Lower(UserMail) = "oluwasanmi.fadeyibi@ekedp.com"Or Lower(UserMail) = "kingsley.udeagha@ekedp.com" Or Lower(UserMail) = "rotimi.alli@ekedp.com" Or Lower(UserMail) = "daniel.akagu@ekedp.com" Or Lower(UserMail) = "abimbola.gbede@ekedp.com",
+                Table(
+                    {
+                        MenuLabel: "Project Records",
+                        ScreenNav: projectsMainPage,
+                        MenuIcon: Icon.ComputerDesktop,
+                        MenuId:1
+                    },
+                    {
+                        MenuLabel: "New Approvals",
+                        ScreenNav: approvalAfterPaymentsPage,
+                        MenuIcon: Icon.Check
+                    },
+                    {
+                        MenuLabel: "Pending Payments",
+                        ScreenNav: ProjectsBankPage,
+                        MenuIcon: Icon.ListScrollWatchlist
+                    },
+                    {
+                        MenuLabel: "Assign Projects",
+                        ScreenNav: ProjectsAssignpage,
+                        MenuIcon: Icon.People
+                    },
+                    {
+                        MenuLabel: "Outage Request",
+                        ScreenNav: ProjectsOutagePage,
+                        MenuIcon: Icon.Tag
+                    },
+                    {
+                        MenuLabel: "Site Inspection",
+                        ScreenNav: ProjectsInspectionPage,
+                        MenuIcon: Icon.LevelsLayersItems
+                    },
+                    {
+                        MenuLabel: "Customer Record Details",
+                        ScreenNav: ProjectsCustomerPage,
+                        MenuIcon: Icon.Lock
+                    },
+                    {
+                        MenuLabel: "Certification",
+                        ScreenNav: ProjectsCertificationPage,
+                        MenuIcon: Icon.LogJournal
+                    },
+                    {
+                        MenuLabel: "Ready For Commission",
+                        ScreenNav: ProjectsCommissionedPage,
+                        MenuIcon: Icon.Clock
+                    }
+                ),
+                Lower(UserMail) = "angela.ukhokhoakhe@ekedp.com" Or Lower(UserMail) = "ubadinma.madukife@ekedp.com" Or Lower(UserMail) = "ibukun.sholola@ekedp.com" Or Lower(UserMail) = "yakubu.odior@ekedp.com",
+                Table(
+                    {
+                        MenuLabel: "Project Records",
+                        ScreenNav: projectsMainPage,
+                        MenuIcon: Icon.ComputerDesktop
+                    },
+                    {
+                        MenuLabel: "Assign Projects",
+                        ScreenNav: ProjectsAssignpage,
+                        MenuIcon: Icon.People
+                    },
+                    {
+                        MenuLabel: "Outage Request",
+                        ScreenNav: ProjectsOutagePage,
+                        MenuIcon: Icon.Tag
+                    },
+                    {
+                        MenuLabel: "Site Inspection",
+                        ScreenNav: ProjectsInspectionPage,
+                        MenuIcon: Icon.LevelsLayersItems
+                    },
+                    {
+                        MenuLabel: "Customer Record Details",
+                        ScreenNav: ProjectsCustomerPage,
+                        MenuIcon: Icon.Lock
+                    },
+                    {
+                        MenuLabel: "Certification",
+                        ScreenNav: ProjectsCertificationPage,
+                        MenuIcon: Icon.LogJournal
+                    },
+                    {
+                        MenuLabel: "Ready For Commission",
+                        ScreenNav: ProjectsCommissionedPage,
+                        MenuIcon: Icon.Clock
+                    }
+                ),
+                Table(
+                    {
+                        MenuLabel: "Project Records",
+                        ScreenNav: projectsMainPage,
+                        MenuIcon: Icon.ComputerDesktop
+                    },
+                    {
+                        MenuLabel: "Outage Request",
+                        ScreenNav: ProjectsOutagePage,
+                        MenuIcon: Icon.Tag
+                    },
+                    {
+                        MenuLabel: "Site Inspection",
+                        ScreenNav: ProjectsInspectionPage,
+                        MenuIcon: Icon.LevelsLayersItems
+                    },
+                    {
+                        MenuLabel: "Customer Record Details",
+                        ScreenNav: ProjectsCustomerPage,
+                        MenuIcon: Icon.Lock
+                    },
+                    {
+                        MenuLabel: "Certification",
+                        ScreenNav: ProjectsCertificationPage,
+                        MenuIcon: Icon.LogJournal
+                    },
+                    {
+                        MenuLabel: "Ready For Commission",
+                        ScreenNav: ProjectsCommissionedPage,
+                        MenuIcon: Icon.Clock
+                    }
+                )
+            )
+        MenuWidth: =MenuProjectsPage_1.MenuWidthInput
+        OnReset: =Set(ShowMenu, MenuProjectsPage_1.ExpandMenu)
+        Width: =MenuProjectsPage_1.MenuWidth
+        X: =18
+        Y: =19
+        ZIndex: =4
+
+    successGroup As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =4
+
+        iconCircle1 As circle.Circle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(90, 106, 119, 1)
+            Height: =271
+            Width: =271
+            X: =528
+            Y: =260
+            ZIndex: =1
+
+        iconCheck1 As icon.Check:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =227
+            Icon: =Icon.Check
+            OnSelect: =Navigate(projectsMainPage)
+            PaddingBottom: =Self.PaddingTop
+            PaddingLeft: =Self.PaddingTop
+            PaddingRight: =Self.PaddingTop
+            PaddingTop: =24
+            PressedFill: =RGBA(255, 255, 255, 0.3)
+            Width: =227
+            X: =550
+            Y: =282
+            ZIndex: =2
+
+        Button4 As button:
+            BorderColor: =Transparent
+            Color: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Semibold
+            Height: =768
+            HoverBorderColor: =Transparent
+            HoverColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =Transparent
+            OnSelect: =Navigate(projectsMainPage)
+            PressedBorderColor: =Transparent
+            PressedColor: =Transparent
+            PressedFill: =Transparent
+            Size: =15
+            Text: ="Button"
+            Width: =1366
+            ZIndex: =3
+
+    Icon2 As icon.Hamburger:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =82
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(longGate, !longGate) 
+        Width: =82
+        X: =24
+        Y: =7
+        ZIndex: =5
+
+    Rectangle4 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =If(longGate, 1000, 13)
+        Width: =261
+        Y: =83
+        ZIndex: =6
+

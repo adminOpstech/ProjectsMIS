@@ -1,0 +1,356 @@
+approvalAfterPaymentsPage As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: =
+
+    TitleTab_2 As TitleTab:
+        Width: =1364
+
+    "stakeholdersGallery_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =544
+        Items: =SortByColumns(Filter(ProjectsWorkProcess, ApprovalStatus = "Awaiting Approval" && StartsWith("ProjectNumber", TextInput3_4.Text)), "ProjectNumber")
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Controls
+        NavigationStep: =2
+        OnSelect: =Set(varStakeHolder, ThisItem)
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =91
+        Width: =1125
+        X: =227
+        Y: =178
+        ZIndex: =2
+
+        Rectangle4_7 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =91
+            OnSelect: =Set(VarRecord, ThisItem)
+            Visible: =ThisItem.IsSelected
+            Width: =1125
+            ZIndex: =1
+
+        Separator1_9 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(32, 54, 71, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =2
+
+        Label40_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =90
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.ProjectName
+            Width: =91
+            X: =129
+            Y: =1
+            ZIndex: =3
+
+        Label41_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.ProjectNumber
+            Width: =Label40_7.Width
+            ZIndex: =4
+
+        Label42_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.ProjectLocation
+            Width: =175
+            X: =237
+            Y: =1
+            ZIndex: =5
+
+        Label32_7 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.ProjectType.Value
+            Width: =Label40_7.Width
+            X: =433
+            Y: =1
+            ZIndex: =6
+
+        Label33_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.Feeder
+            Width: =Label40_7.Width
+            X: =566
+            Y: =1
+            ZIndex: =7
+
+        Label35_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.Capacity
+            Width: =Label40_7.Width
+            X: =678
+            Y: =1
+            ZIndex: =8
+
+        Label36_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.VtRatio.Value
+            Width: =Label40_7.Width
+            X: =811
+            Y: =1
+            ZIndex: =9
+
+        Label37_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_7.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_7.Size
+            Text: =ThisItem.District.Value 
+            Width: =Label40_7.Width
+            X: =944
+            Y: =1
+            ZIndex: =10
+
+        Rectangle8_2 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =91
+            OnSelect: =Set(VarRecordApproval,ThisItem); Navigate(approvalAfterPaymentsScreen,ScreenTransition.Fade); Set(VarSpinnerApprove, false)
+            Width: =1125
+            ZIndex: =13
+
+    NavApprovalPage As MenuNav:
+        ExpandMenu: =true
+        Height: =NavApprovalPage.MenuHeight
+        MenuHeight: =NavApprovalPage.MenuHeightInput
+        MenuHeightInput: =730
+        MenuItems: |-
+            =If(
+                Lower(UserMail) = "jonathan.lawani@ekedp.com" Or Lower(UserMail) = "oluwasanmi.fadeyibi@ekedp.com" Or Lower(UserMail) = "kingsley.udeagha@ekedp.com" Or Lower(UserMail) = "rotimi.alli@ekedp.com" Or Lower(UserMail) = "daniel.akagu@ekedp.com" Or Lower(UserMail) = "abimbola.gbede@ekedp.com" Or Lower(UserMail) = "ark.ifeanyi@ekedp.com",
+                Table(
+                    {
+                        MenuLabel: "Project Records",
+                        ScreenNav: projectsMainPage,
+                        MenuIcon: Icon.ComputerDesktop,
+                        MenuId:1
+                    },
+                    {
+                        MenuLabel: "Pending Payments",
+                        ScreenNav: ProjectsBankPage,
+                        MenuIcon: Icon.ListScrollWatchlist
+            
+                    },
+                    {
+                        MenuLabel: "Approvals",
+                        ScreenNav: approvalAfterPaymentsPage,
+                        MenuIcon: Icon.Check
+                    },
+                    {
+                        MenuLabel: "Assign Projects",
+                        ScreenNav: ProjectsAssignpage,
+                        MenuIcon: Icon.People
+                    },
+                    {
+                        MenuLabel: "Outage Request",
+                        ScreenNav: ProjectsOutagePage,
+                        MenuIcon: Icon.Tag
+                    },
+                    {
+                        MenuLabel: "Site Inspection",
+                        ScreenNav: ProjectsInspectionPage,
+                        MenuIcon: Icon.LevelsLayersItems
+                    },
+                    {
+                        MenuLabel: "Customer Record Details",
+                        ScreenNav: ProjectsCustomerPage,
+                        MenuIcon: Icon.Lock
+                    },
+                    {
+                        MenuLabel: "Certification",
+                        ScreenNav: ProjectsCertificationPage,
+                        MenuIcon: Icon.LogJournal
+                    },
+                    {
+                        MenuLabel: "Ready For Commission",
+                        ScreenNav: ProjectsCommissionedPage,
+                        MenuIcon: Icon.Clock
+                    }
+                ),
+                Lower(UserMail) = "angela.ukhokhoakhe@ekedp.com" Or Lower(UserMail) = "ubadinma.madukife@ekedp.com" Or Lower(UserMail) = "ibukun.sholola@ekedp.com" Or Lower(UserMail) = "yakubu.odior@ekedp.com",
+                Table(
+                    {
+                        MenuLabel: "Project Records",
+                        ScreenNav: projectsMainPage,
+                        MenuIcon: Icon.ComputerDesktop
+                    },
+                    {
+                        MenuLabel: "Assign Projects",
+                        ScreenNav: ProjectsAssignpage,
+                        MenuIcon: Icon.People
+                    },
+                    {
+                        MenuLabel: "Outage Request",
+                        ScreenNav: ProjectsOutagePage,
+                        MenuIcon: Icon.Tag
+                    },
+                    {
+                        MenuLabel: "Site Inspection",
+                        ScreenNav: ProjectsInspectionPage,
+                        MenuIcon: Icon.LevelsLayersItems
+                    },
+                    {
+                        MenuLabel: "Customer Record Details",
+                        ScreenNav: ProjectsCustomerPage,
+                        MenuIcon: Icon.Lock
+                    },
+                    {
+                        MenuLabel: "Certification",
+                        ScreenNav: ProjectsCertificationPage,
+                        MenuIcon: Icon.LogJournal
+                    },
+                    {
+                        MenuLabel: "Ready For Commission",
+                        ScreenNav: ProjectsCommissionedPage,
+                        MenuIcon: Icon.Clock
+                    }
+                ),
+                Table(
+                    {
+                        MenuLabel: "Project Records",
+                        ScreenNav: projectsMainPage,
+                        MenuIcon: Icon.ComputerDesktop
+                    },
+                    {
+                        MenuLabel: "Outage Request",
+                        ScreenNav: ProjectsOutagePage,
+                        MenuIcon: Icon.Tag
+                    },
+                    {
+                        MenuLabel: "Site Inspection",
+                        ScreenNav: ProjectsInspectionPage,
+                        MenuIcon: Icon.LevelsLayersItems
+                    },
+                    {
+                        MenuLabel: "Customer Record Details",
+                        ScreenNav: ProjectsCustomerPage,
+                        MenuIcon: Icon.Lock
+                    },
+                    {
+                        MenuLabel: "Certification",
+                        ScreenNav: ProjectsCertificationPage,
+                        MenuIcon: Icon.LogJournal
+                    },
+                    {
+                        MenuLabel: "Ready For Commission",
+                        ScreenNav: ProjectsCommissionedPage,
+                        MenuIcon: Icon.Clock
+                    }
+                )
+            )
+        MenuWidth: =NavApprovalPage.MenuWidthInput
+        OnReset: =Set(ShowMenu, NavApprovalPage.ExpandMenu)
+        Width: =NavApprovalPage.MenuWidth
+        X: =16
+        ZIndex: =4
+
+    Icon30 As icon.BackArrow:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =35
+        Icon: =Icon.BackArrow
+        Width: =35
+        X: =1309
+        Y: =14
+        ZIndex: =7
+
+    searchComponent_4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =10
+
+        TextInput3_4 As text:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Lighter
+            HintText: =""
+            HoverBorderColor: =RGBA(32, 54, 71, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(205, 209, 213, 1)
+            PaddingLeft: =40
+            PressedBorderColor: =White
+            RadiusBottomLeft: =
+            RadiusBottomRight: =
+            RadiusTopLeft: =
+            RadiusTopRight: =
+            Reset: =true
+            Size: =13
+            Width: =391
+            X: =961
+            Y: =63
+            ZIndex: =8
+
+        Icon15_10 As icon.Search:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(219, 219, 219, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =23
+            Icon: =Icon.Search
+            PressedBorderColor: =White
+            Width: =31
+            X: =969
+            Y: =72
+            ZIndex: =9
+

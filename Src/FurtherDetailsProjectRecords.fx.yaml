@@ -1,0 +1,1234 @@
+FurtherDetailsProjectRecords As screen:
+    LoadingSpinner: =LoadingSpinner.Data
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: |
+        =UpdateContext({fudadetails: shrtdetails}); 
+
+    homeButtonIcon_5 As icon.Home:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =47
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =47
+        X: =23
+        Y: =28
+        ZIndex: =1
+
+    nercform As form:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DataSource: =ProjectsWorkProcess
+        Height: =511
+        Item: =fudadetails
+        OnSuccess: |-
+            =Set(
+                VarSpinnerFuda,
+                true
+            );
+            Navigate(SuccessPage);
+            Set(
+                VarSpinnerFuda,
+                false
+            )
+        Width: =1111
+        X: =43
+        Y: =169
+        ZIndex: =16
+
+        TeamLead_DataCard5 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="TeamLead"
+            Default: =ThisItem.TeamLead
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="TeamLead"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue37.Selected
+            Width: =370
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardValue37 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(100, 118, 132, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(206, 189, 221, 1)
+                Height: =43
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Choices([@ProjectsWorkProcess].TeamLead)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(ProjectsWorkProcess.TeamLead,DataCardValue37.SearchText)
+                SelectionFill: =RGBA(100, 118, 132, 1)
+                SelectMultiple: =false
+                Size: =13
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                ZIndex: =2
+
+        Feed_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Feed"
+            Default: =ThisItem.Feed
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Feed"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =157
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "Feed")
+            Required: =false
+            Update: =DataCardValue184.Text
+            Visible: =false
+            Width: =370
+            X: =1
+            Y: =6
+            ZIndex: =1
+
+            DataCardValue184 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: ="Nerc"
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ApprovalStatus_DataCard2 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ApprovalStatus"
+            Default: =ThisItem.ApprovalStatus
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="ApprovalStatus"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "ApprovalStatus")
+            Required: =false
+            Update: =DataCardValue1.Text
+            Visible: =false
+            Width: =370
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardValue1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =If(ThisItem.Feed = "Nerc", "Submitted For Commissioning",  Parent.Default)
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        approvalRequest_DataCard1 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="approvalRequest"
+            Default: =ThisItem.approvalRequest
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="approvalRequest"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "approvalRequest")
+            Required: =false
+            Update: =DataCardValue26.Text
+            Visible: =false
+            Width: =370
+            X: =1
+            Y: =7
+            ZIndex: =1
+
+            DataCardValue26 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ProjectNumber_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ProjectNumber"
+            Default: =ThisItem.ProjectNumber
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ProjectNumber"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "ProjectNumber")
+            Required: =false
+            Update: =DataCardValue156.Text
+            Width: =370
+            X: =0
+            Y: =0
+            ZIndex: =41
+
+            DataCardValue156 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =342
+                X: =28
+                ZIndex: =2
+
+        ApprovalNumber_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ApprovalNumber"
+            Default: =ThisItem.ApprovalNumber
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ApprovalNumber"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "ApprovalNumber")
+            Required: =false
+            Update: =DataCardValue167.Text
+            Width: =370
+            X: =1
+            Y: =0
+            ZIndex: =41
+
+            DataCardValue167 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ProjectName_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Title"
+            Default: =ThisItem.ProjectName
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ProjectName"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "Title")
+            Required: =false
+            Update: =DataCardValue147.Text
+            Width: =370
+            X: =2
+            Y: =0
+            ZIndex: =41
+
+            DataCardValue147 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =39
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ProjectType_DataCard4 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ProjectType"
+            Default: =ThisItem.ProjectType
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ProjectType"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue159.Selected
+            Width: =370
+            X: =0
+            Y: =1
+            ZIndex: =41
+
+            DataCardValue159 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =0
+                ChevronBackground: =RGBA(100, 118, 132, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =42
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Choices([@ProjectsWorkProcess].ProjectType)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(ProjectsWorkProcess.ProjectType,DataCardValue159.SearchText)
+                SelectionFill: =RGBA(100, 118, 132, 1)
+                SelectMultiple: =false
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        Others_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Others"
+            Default: =ThisItem.Others
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Others"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "Others")
+            Required: =false
+            Update: =DataCardValue177.Text
+            Width: =370
+            X: =1
+            Y: =1
+            ZIndex: =41
+
+            DataCardValue177 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =42
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        Capacity_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Capacity"
+            Default: =ThisItem.Capacity
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Capacity"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "Capacity")
+            Required: =false
+            Update: =DataCardValue155.Text
+            Width: =370
+            X: =2
+            Y: =1
+            ZIndex: =41
+
+            DataCardValue155 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        VtRatio_DataCard5 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="VRatio"
+            Default: =ThisItem.VtRatio
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="VtRatio"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue164.Selected
+            Width: =370
+            X: =0
+            Y: =2
+            ZIndex: =41
+
+            DataCardValue164 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(100, 118, 132, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =41
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Choices([@ProjectsWorkProcess].VtRatio)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(ProjectsWorkProcess.VtRatio,DataCardValue164.SearchText)
+                SelectionFill: =RGBA(100, 118, 132, 1)
+                SelectMultiple: =false
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ProjectLocation_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ProjectLocation"
+            Default: =ThisItem.ProjectLocation
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ProjectLocation"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "ProjectLocation")
+            Required: =false
+            Update: =DataCardValue154.Text
+            Width: =370
+            X: =1
+            Y: =2
+            ZIndex: =41
+
+            DataCardValue154 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        District_DataCard7 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="District"
+            Default: =ThisItem.District
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="District"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue168.Selected
+            Width: =370
+            X: =2
+            Y: =2
+            ZIndex: =41
+
+            DataCardValue168 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(100, 118, 132, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =41
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Choices([@ProjectsWorkProcess].District)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(ProjectsWorkProcess.District,DataCardValue168.SearchText)
+                SelectionFill: =RGBA(100, 118, 132, 1)
+                SelectMultiple: =false
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        Feeder_DataCard5 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Feeder"
+            Default: =ThisItem.Feeder
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Feeder"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =49
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "Feeder")
+            Required: =false
+            Update: =DataCardValue166.Text
+            Width: =370
+            X: =0
+            Y: =3
+            ZIndex: =41
+
+            DataCardValue166 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =38
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Italic: =true
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        InjSubstation_DataCard7 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="InjSubstation"
+            Default: =ThisItem.InjSubstation
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="InjSubstation"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "InjSubstation")
+            Required: =false
+            Update: =DataCardValue170.Text
+            Width: =370
+            X: =1
+            Y: =3
+            ZIndex: =41
+
+            DataCardValue170 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Italic: =true
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        LengthOfCable_DataCard9 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LengthOfCable"
+            Default: =ThisItem.LengthOfCable
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="LengthOfCable"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "LengthOfCable")
+            Required: =false
+            Update: =DataCardValue178.Text
+            Width: =370
+            X: =2
+            Y: =3
+            ZIndex: =41
+
+            DataCardValue178 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        SizeOfCable_DataCard8 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="SizeOfCable"
+            Default: =ThisItem.SizeOfCable
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="SizeOfCable"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "SizeOfCable")
+            Required: =false
+            Update: =DataCardValue180.Text
+            Width: =370
+            X: =0
+            Y: =4
+            ZIndex: =41
+
+            DataCardValue180 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =42
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        TypeOfCable_DataCard8 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="TypeOfCable"
+            Default: =ThisItem.TypeOfCable
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="TypeOfCable"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "TypeOfCable")
+            Required: =false
+            Update: =DataCardValue181.Text
+            Width: =370
+            X: =1
+            Y: =4
+            ZIndex: =41
+
+            DataCardValue181 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =41
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        Contractor_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Contractor"
+            Default: =ThisItem.Contractor
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Contractor"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "Contractor")
+            Required: =false
+            Update: =DataCardValue157.Text
+            Width: =370
+            X: =2
+            Y: =4
+            ZIndex: =41
+
+            DataCardValue157 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =42
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ContractorsNumber_DataCard4 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ContractorsNumber"
+            Default: =ThisItem.ContractorsNumber
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ContractorsNumber"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ProjectsWorkProcess], DataSourceInfo.MaxLength, "ContractorsNumber")
+            Required: =false
+            Update: =DataCardValue158.Text
+            Width: =370
+            X: =0
+            Y: =5
+            ZIndex: =41
+
+            DataCardValue158 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =4
+                Height: =38
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        HOGroup_DataCard7 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="HOGroup"
+            Default: =ThisItem.HOGroup
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="HOGroup"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =55
+            Required: =false
+            Update: =DataCardValue182.Selected
+            Width: =370
+            X: =1
+            Y: =5
+            ZIndex: =41
+
+            DataCardValue182 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(100, 118, 132, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(204, 231, 246, 1)
+                Height: =43
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Choices([@ProjectsWorkProcess].HOGroup)
+                PaddingTop: =10
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(ProjectsWorkProcess.HOGroup,DataCardValue182.SearchText)
+                SelectionFill: =RGBA(100, 118, 132, 1)
+                SelectMultiple: =false
+                Size: =13
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        ProjectEngineer_DataCard3 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="projectEngineer"
+            Default: =ThisItem.ProjectEngineer
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="ProjectEngineer"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =55
+            Required: =false
+            Update: =DataCardValue169.SelectedItems
+            Width: =370
+            X: =2
+            Y: =5
+            ZIndex: =41
+
+            DataCardValue169 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(100, 118, 132, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(238, 204, 204, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Choices([@ProjectsWorkProcess].ProjectEngineer)
+                PaddingTop: =10
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(ProjectsWorkProcess.ProjectEngineer,DataCardValue169.SearchText)
+                SelectionFill: =RGBA(100, 118, 132, 1)
+                Size: =13
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =
+                ZIndex: =2
+
+        Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.Attachments
+            DisplayMode: =If(ThisItem.Feed = "Nerc", DisplayMode.View, Edit)
+            DisplayName: ="Attachments"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =189
+            Required: =true
+            Update: =DataCardValue183.Attachments
+            Visible: =If(Lower(ThisItem.Feed)  = "nerc", false, true) 
+            Width: =370
+            X: =2
+            Y: =6
+            ZIndex: =41
+
+            DataCardKey193 As label:
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =31
+                Size: =12
+                Text: ="NEMSA CERTIFICATE"
+                Width: =196
+                Wrap: =false
+                X: =30
+                Y: =14
+                ZIndex: =1
+
+            DataCardValue183 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Black, Color.Red)
+                BorderThickness: =1
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(241, 244, 249, 1)
+                FocusedBorderThickness: =4
+                FontWeight: =FontWeight.Lighter
+                Height: =97
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                IsInDataCard: =true
+                ItemColor: =RGBA(255, 255, 255, 1)
+                ItemFill: =RGBA(100, 118, 132, 1)
+                ItemHoverColor: =RGBA(0, 0, 0, 1)
+                ItemHoverFill: =RGBA(205, 209, 213, 1)
+                Items: =Parent.Default
+                MaxAttachments: =1
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(32, 54, 71, 1)
+                Tooltip: =Parent.DisplayName
+                Width: =323
+                X: =37
+                Y: =45
+                ZIndex: =2
+
+            ErrorMessage165 As label:
+                AutoHeight: =true
+                Color: =RGBA(168, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue183.Y + DataCardValue183.Height
+                ZIndex: =3
+
+            StarVisible165 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =DataCardKey193.Height
+                Size: =13
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey193.Y
+                ZIndex: =4
+
+    Icon29 As icon.Save:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(Lower(UserMail) = Lower(fudadetails.ProjectEngineerEmail), Edit, Disabled)
+        Height: =58
+        Icon: =Icon.Save
+        OnSelect: =SubmitForm(nercform)
+        Visible: =If(Attachments_DataCard1.DisplayMode = DisplayMode.View, false, true)
+        Width: =72
+        X: =1082
+        Y: =663
+        ZIndex: =17
+
+    Label2 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(185, 188, 192, 1)
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =48
+        Size: =11
+        Text: =Switch(fudadetails.ApprovalStatus, "Awaiting Payment", "MIS Desk", "Awaiting Approval", "HOD's Desk", "Approved", "HOG's Desk", "Outage Request", "Awaiting Outage Request By Project Engineer",  "Site Inspection", "Site Inspection Ongoing",  "HOGverification", "Awaiting HOG Approval", "HODverification", "Awaiting HOD Approval","Commissioned", "Project Has Been Commissioned!", "Awaiting Responses From Other Departments")
+        Width: =1081
+        X: =73
+        Y: =103
+        ZIndex: =21
+
+    docButton As button:
+        BorderThickness: =0
+        Color: =RGBA(99, 139, 44, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(209, 232, 178, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =768
+        HoverBorderColor: =Transparent
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(Self.Fill, -20%)
+        OnSelect: =Set(varDoc, fudadetails); Navigate(FurtherDetailsProjectRecordsExtension, Cover)
+        PressedBorderColor: =Transparent
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Size: =200
+        Text: =">"
+        Width: =182
+        X: =1184
+        ZIndex: =24
+
+    "'var spinner for fuda' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =52
+
+        Rectangle11_1 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(230, 230, 230, .7)
+            Height: =768
+            Visible: =VarSpinnerFuda
+            Width: =1366
+            ZIndex: =25
+
+        Image1_1 As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =434
+            Image: ='Spinner-1s-231px (1)'
+            Visible: =VarSpinnerFuda
+            Width: =434
+            X: =459
+            Y: =188
+            ZIndex: =26
+

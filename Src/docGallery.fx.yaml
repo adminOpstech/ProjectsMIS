@@ -1,0 +1,404 @@
+"docGallery As screen.'tabletAutoLayout_SplitScreen_ver1.0'":
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    ScreenContainer1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        LeftSideContainer1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            documentGallery_7 As gallery.variableTemplateHeightGallery:
+                AlignInContainer: =AlignInContainer.End
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Fill: =RGBA(209, 232, 178, 1)
+                Height: =768
+                Items: =varDoc
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                ShowScrollbar: =false
+                TemplateSize: =759
+                Width: =182
+                X: =1184
+                ZIndex: =1
+
+                Gallery7_8 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter('E&S Schematic Diagrams', projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =24
+                    Y: =24
+                    ZIndex: =1
+
+                    Icon4_8 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.DocumentPDF
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =20
+                        Y: =12
+                        ZIndex: =1
+
+                    Label29_8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="E&S Spec Diagram"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery8_8 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter('NPG Schematic Diagrams', projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =24
+                    Y: =168
+                    ZIndex: =2
+
+                    Icon5_9 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.DocumentPDF
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =21
+                        Y: =13
+                        ZIndex: =1
+
+                    Label30_8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="NPG Schematic"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery9_8 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter('Acceptance Letters for Projects', projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =24
+                    Y: =312
+                    ZIndex: =3
+
+                    Icon15_17 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.DockCheckProperties
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =22
+                        Y: =13
+                        ZIndex: =1
+
+                    Label31_8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="Approval Letter"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery10_8 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter('Bank Drafts', projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =24
+                    Y: =456
+                    ZIndex: =4
+
+                    Icon31_8 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.Money
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =21
+                        Y: =13
+                        ZIndex: =1
+
+                    Label32_22 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="Bank Draft"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery11_8 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter(ProjectsWorkProcess, ProjectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =24
+                    Y: =600
+                    ZIndex: =5
+
+                    Icon32_8 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.Tag
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        Visible: =If(ThisItem.'Has attachments', true, false)
+                        X: =22
+                        Y: =12
+                        ZIndex: =1
+
+                    Label33_22 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="NEMSA Certificate"
+                        Visible: =If(ThisItem.'Has attachments', true, false)
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+        RightSideContainer1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            documentGallery_8 As gallery.variableTemplateHeightGallery:
+                AlignInContainer: =AlignInContainer.Start
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Fill: =RGBA(153, 207, 236, 1)
+                Height: =768
+                Items: =varDoc
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                ShowScrollbar: =false
+                TemplateSize: =759
+                Width: =182
+                X: =1184
+                ZIndex: =1
+
+                Gallery7_9 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter(uvfReportProjects, projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =32
+                    Y: =24
+                    ZIndex: =1
+
+                    Icon4_9 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.DocumentWithContent
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =20
+                        Y: =12
+                        ZIndex: =1
+
+                    Label29_9 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="UVF"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery8_9 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter(PandTProjects, projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =32
+                    Y: =168
+                    ZIndex: =2
+
+                    Icon5_10 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.Settings
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =21
+                        Y: =13
+                        ZIndex: =1
+
+                    Label30_9 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="P&T Report"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery9_9 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter(inspectionReportProjects, projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =32
+                    Y: =312
+                    ZIndex: =3
+
+                    Icon15_18 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.ListScrollWatchlist
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =22
+                        Y: =13
+                        ZIndex: =1
+
+                    Label31_9 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="Inspection Report"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+                Gallery10_9 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Height: =122
+                    Items: =Filter(SurveyReportProjects, projectNumber = ThisItem.ProjectNumber)
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplateSize: =117
+                    Width: =117
+                    X: =32
+                    Y: =456
+                    ZIndex: =4
+
+                    Icon31_9 As icon.Add:
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(50, 86, 160, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Icon: =Icon.Globe
+                        OnSelect: =Download(First(ThisItem.Attachments).AbsoluteUri)
+                        X: =21
+                        Y: =13
+                        ZIndex: =1
+
+                    Label32_23 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(32, 54, 71, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Italic: =true
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: ="Survey Report"
+                        Width: =107
+                        Y: =77
+                        ZIndex: =2
+
+    Icon33 As icon.Cancel:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =159
+        Icon: =Icon.Cancel
+        OnSelect: =Back()
+        Width: =159
+        X: =48
+        Y: =40
+        ZIndex: =2
+

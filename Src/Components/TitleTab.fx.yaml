@@ -1,0 +1,136 @@
+TitleTab As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    titleTab_9 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =1
+        Fill: =RGBA(232, 244, 217, 1)
+        Height: =48
+        Items: =CustomGallerySample
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =43
+        Width: =1125
+        X: =227 //If(showMenuTab, 235, 19)
+        Y: =119
+        ZIndex: =1
+
+        Label63_14 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: ="Project Name"
+            Width: =90
+            X: =119
+            ZIndex: =1
+
+        Label64_14 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Address"
+            Width: =185
+            X: =226
+            ZIndex: =2
+
+        Label65_14 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Project Number"
+            Width: =77
+            X: =10
+            ZIndex: =3
+
+        Label66_14 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Project Type"
+            X: =425
+            ZIndex: =4
+
+        Label67_14 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Feeder"
+            Width: =91
+            X: =575
+            ZIndex: =5
+
+        Label68_14 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Capacity"
+            Width: =81
+            X: =679
+            ZIndex: =6
+
+        Label69_14 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Vt Ratio"
+            Width: =116
+            X: =796
+            ZIndex: =7
+
+        Label70_27 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_14.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_14.Size
+            Text: ="Business Unit"
+            Width: =96
+            X: =943
+            ZIndex: =8
+
+        Icon5_1 As icon.Attachment:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(221, 79, 14, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =34
+            Icon: =Icon.PaperClip
+            OnSelect: |-
+                =Launch("https://ekedp.sharepoint.com/:x:/s/ProjectDepartmentTS/EUNGIh-g1UFLoQrP_FFoTqsBPibN9eoUWqw-GYLT7XKcvA?e=4%3AmzMwLs&at=9&CID=aa5bca0d-e582-6315-b72c-2cd51308cdd8")
+            Rotation: =45
+            Visible: =false
+            Width: =51
+            X: =1039
+            ZIndex: =9
+

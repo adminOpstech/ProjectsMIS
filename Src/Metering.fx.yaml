@@ -1,0 +1,956 @@
+Metering As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    "approvalsGalleryMetering As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =1
+        Height: =546
+        Items: =Search(If(Dropdown2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BTitle' = "All", meteringProjects, Dropdown2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BTitle' = "Completed", Filter(meteringProjects, 'Status (Status0)' = "Completed"), Filter(meteringProjects, 'Status (Status0)' = "Pending")), TextInput4.Text, "ProjectNumber", "Capacity", "ProjectLocation", "Title")
+        Layout: =Layout.Vertical
+        OnSelect: =
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =91
+        Width: =1326
+        X: =19
+        Y: =199
+        ZIndex: =1
+
+        Rectangle4_2 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =91
+            Visible: =ThisItem.IsSelected
+            Width: =1324
+            ZIndex: =1
+
+        Separator1_4 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(32, 54, 71, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =2
+
+        Label40_2 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =90
+            OnSelect: =Select(Parent)
+            PaddingLeft: =10
+            Size: =11
+            Text: =ThisItem.ProjectName
+            Width: =112
+            Y: =1
+            ZIndex: =3
+
+        Label41_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.ProjectNumber
+            Width: =Label40_2.Width
+            X: =91
+            Y: =1
+            ZIndex: =4
+
+        Label42_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.ProjectLocation
+            Width: =175
+            X: =182
+            ZIndex: =5
+
+        Label32_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.ProjectType.Value
+            Width: =Label40_2.Width
+            X: =357
+            ZIndex: =6
+
+        Label33_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.Feeder
+            Width: =Label40_2.Width
+            X: =466
+            ZIndex: =7
+
+        Label35_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.Capacity
+            Width: =77
+            X: =561
+            ZIndex: =8
+
+        Label36_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.VtRatio.Value
+            Width: =Label40_2.Width
+            X: =670
+            ZIndex: =9
+
+        Label37_6 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.District.Value 
+            Width: =Label40_2.Width
+            X: =782
+            ZIndex: =10
+
+        Label37_8 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.ContractorsNumber
+            Width: =104
+            X: =891
+            ZIndex: =11
+
+        Label37_7 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_2.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.ProjectEngineer.DisplayName
+            Width: =100
+            X: =1149
+            ZIndex: =12
+
+        Icon20 As icon.clearDrawing:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =39
+            Icon: =Icon.Post
+            OnSelect: =Set(varUserMis, User().FullName);  Set(mVar, ThisItem);Set(mFormVisible, true)
+            Width: =39
+            X: =1267
+            Y: =25
+            ZIndex: =14
+
+        Label37_21 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(99, 139, 44, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =Label40_2.Height
+            Italic: =true
+            OnSelect: =Select(Parent)
+            Size: =Label40_2.Size
+            Text: =ThisItem.Meter
+            Width: =136
+            X: =1006
+            ZIndex: =17
+
+        Group3 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =17
+
+            Circle1 As circle:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =64
+                OnSelect: =Select(Parent)
+                Visible: =If(ThisItem.'Status (Status0)' = "Completed", true, false)
+                Width: =70
+                X: =1249
+                Y: =12
+                ZIndex: =15
+
+            Icon21 As icon.Check:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(127, 178, 57, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =39
+                Icon: =Icon.Check
+                OnSelect: |-
+                    =Notify("Meter Number:  " & ThisItem.Meter, NotificationType.Information, 10000)
+                Visible: =If(ThisItem.'Status (Status0)' = "Completed", true, false)
+                Width: =39
+                X: =1264
+                Y: =26
+                ZIndex: =16
+
+    titleTabMetering As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =1
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =48
+        Items: =CustomGallerySample
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =43
+        Width: =1326
+        X: =19
+        Y: =142
+        ZIndex: =2
+
+        Label63_1 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: ="Project Name"
+            Width: =90
+            ZIndex: =1
+
+        Label64_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Address"
+            Width: =163
+            X: =180
+            ZIndex: =2
+
+        Label65_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Project Number"
+            Width: =90
+            X: =90
+            ZIndex: =3
+
+        Label66_1 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Project Type"
+            Width: =111
+            X: =343
+            ZIndex: =4
+
+        Label67_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Feeder"
+            Width: =91
+            X: =454
+            ZIndex: =5
+
+        Label68_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Capacity"
+            Width: =81
+            X: =563
+            ZIndex: =6
+
+        Label69_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Vt Ratio"
+            Width: =116
+            X: =657
+            ZIndex: =7
+
+        Label70_3 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Business Unit"
+            Width: =96
+            X: =773
+            ZIndex: =8
+
+        Label70_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Contractor"
+            Width: =96
+            X: =889
+            ZIndex: =9
+
+        Label70_4 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Project Engineer"
+            Width: =77
+            X: =1147
+            ZIndex: =10
+
+        Label70_18 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_1.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_1.Size
+            Text: ="Meter Number"
+            Width: =98
+            X: =1019
+            ZIndex: =11
+
+    Dropdown2 As dropdown:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        ChevronBackground: =RGBA(100, 118, 132, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: ="All"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        Items: |-
+            =Table({Title: "All", Screen: App.ActiveScreen}, {Title: "Completed", Screen: App.ActiveScreen}, {Title: "Pending"})
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(32, 54, 71, 1)
+        SelectionFill: =RGBA(100, 118, 132, 1)
+        Size: =13
+        X: =19
+        Y: =90
+        ZIndex: =3
+
+    TextInput4 As text:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =1
+        HoverBorderColor: =RGBA(32, 54, 71, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        PaddingLeft: =45
+        RadiusBottomLeft: =
+        RadiusBottomRight: =
+        RadiusTopLeft: =
+        RadiusTopRight: =
+        Size: =13
+        Width: =360
+        X: =984
+        Y: =90
+        ZIndex: =4
+
+    Icon13 As icon.ArrowsUpDown:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =40
+        Icon: =Icon.Sort
+        Width: =40
+        X: =358
+        Y: =90
+        ZIndex: =5
+
+    Icon14 As icon.Search:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(219, 219, 219, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =26
+        Icon: =Icon.Search
+        Width: =26
+        X: =991
+        Y: =97
+        ZIndex: =6
+
+    Label25_3 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =DarkGoldenRod
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        Height: =58
+        Size: =40
+        Text: ="Projects."
+        Width: =386
+        X: =12
+        Y: =18
+        ZIndex: =7
+
+    Label56 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(232, 244, 217, 1)
+        Height: =46
+        Size: =13
+        Text: |-
+            ="TOTAL : " & Count(meteringProjects.ID) & "   COMPLETED : " & Count(compM.ID)
+        Width: =361
+        X: =984
+        Y: =25
+        ZIndex: =8
+
+    FormM1 As form:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DataSource: =meteringProjects
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =182
+        Item: =mVar
+        OnSuccess: |-
+            =Patch(
+                externalstakeholders,
+                LookUp(
+                    externalstakeholders,
+                    Number = mVar.ProjectNumber
+                ),
+                {MeterNumber: meterCard.Text},
+                {DateMN: meterdatecard.SelectedDate}
+            );
+            If(
+                LookUp(
+                    ProjectsWorkProcess,
+                    ProjectNumber = mVar.ProjectNumber,
+                    ApprovalStatus <> "Submitted For Commissioning"
+                ),
+                Patch(
+                    ProjectsWorkProcess,
+                    LookUp(
+                        ProjectsWorkProcess,
+                        ProjectNumber = mVar.ProjectNumber
+                    ),
+                    {ApprovalStatus: "Metered"}
+                )
+            );
+            Patch(
+                compM,
+                Defaults(compM),
+                {ProjectNumber: mVar.ProjectNumber},
+                {ProjectName: mVar.ProjectName},
+                {projID: mVar.ID},
+                {ProjectStatus: "Completed"}
+            );
+            UpdateContext({mBox: ""});
+            Set(
+                mFormVisible,
+                false
+            );
+            Notify(
+                "Meter Number Saved, Thank You!",
+                NotificationType.Success,
+                3000
+            );
+            Reset(approvalsGalleryMetering);
+            //Patch(ProjectsWorkProcess,LookUp(ProjectsWorkProcess,ProjectNumber=mVar.ProjectNumber), {ApprovalStatus:"Metered"})
+        Visible: =mFormVisible
+        Width: =461
+        X: =883
+        Y: =199
+        ZIndex: =9
+
+        ProjectNumber_DataCard11 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ProjectNumber"
+            Default: =ThisItem.ProjectNumber
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="ProjectNumber"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =95
+            MaxLength: =DataSourceInfo([@meteringProjects], DataSourceInfo.MaxLength, "ProjectNumber")
+            Required: =false
+            Update: =projNumCard.Text
+            Visible: =false
+            Width: =459
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey326 As label:
+                AutoHeight: =true
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =34
+                Size: =13
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            projNumCard As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey326.Y + DataCardKey326.Height + 5
+                ZIndex: =2
+
+            ErrorMessage296 As label:
+                AutoHeight: =true
+                Color: =RGBA(168, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =projNumCard.Y + projNumCard.Height
+                ZIndex: =3
+
+            StarVisible296 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =DataCardKey326.Height
+                Size: =13
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey326.Y
+                ZIndex: =4
+
+        "'Status (Status0)_DataCard4' As typedDataCard.textualEditCard":
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Status0"
+            Default: =ThisItem.'Status (Status0)'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Status (Status0)"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@meteringProjects], DataSourceInfo.MaxLength, "Status0")
+            Required: =false
+            Update: =DataCardValue265.Text
+            Visible: =false
+            Width: =153
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+            DataCardKey273 As label:
+                AutoHeight: =true
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =34
+                Size: =13
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue265 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: ="Completed"
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey273.Y + DataCardKey273.Height + 5
+                ZIndex: =2
+
+            ErrorMessage250 As label:
+                AutoHeight: =true
+                Color: =RGBA(168, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue265.Y + DataCardValue265.Height
+                ZIndex: =3
+
+            StarVisible250 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =DataCardKey273.Height
+                Size: =13
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey273.Y
+                ZIndex: =4
+
+        Meter_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Meter"
+            Default: =ThisItem.Meter
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Meter"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =172
+            MaxLength: =DataSourceInfo([@meteringProjects], DataSourceInfo.MaxLength, "Meter")
+            Required: =true
+            Update: =meterCard.Text
+            Visible: =true
+            Width: =459
+            X: =0
+            Y: =1
+            ZIndex: =10
+
+            DataCardKey274 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =12
+                Text: ="METER NUMBER"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            meterCard As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =mBox
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                HoverBorderColor: =RGBA(32, 54, 71, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(205, 209, 213, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =366
+                X: =30
+                Y: =DataCardKey274.Y + DataCardKey274.Height + 5
+                ZIndex: =2
+
+            ErrorMessage251 As label:
+                AutoHeight: =true
+                Color: =RGBA(168, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =meterCard.Y + meterCard.Height
+                ZIndex: =3
+
+            StarVisible251 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =DataCardKey274.Height
+                Size: =13
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey274.Y
+                ZIndex: =4
+
+            Label62 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =45
+                Italic: =true
+                Size: =13
+                Text: =ThisItem.ProjectNumber & "                           " & ThisItem.ProjectName
+                Width: =399
+                X: =30
+                Y: =93
+                ZIndex: =5
+
+            Icon19 As icon.Reload:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =22
+                Icon: =Icon.Reload
+                OnSelect: |-
+                    =UpdateContext({ mBox: ""})
+                Width: =22
+                X: =416
+                Y: =56
+                ZIndex: =8
+
+            Button9 As button:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(203, 102, 102, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                OnSelect: |-
+                    =Set(mFormVisible, false); UpdateContext({mBox: ""})
+                RadiusBottomLeft: =2
+                RadiusBottomRight: =2
+                RadiusTopLeft: =2
+                RadiusTopRight: =2
+                Size: =15
+                Text: ="Cancel"
+                Width: =91
+                X: =30
+                Y: =146
+                ZIndex: =9
+
+            Button11 As button:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(99, 139, 44, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+                OnSelect: =SubmitForm(FormM1)
+                RadiusBottomLeft: =2
+                RadiusBottomRight: =2
+                RadiusTopLeft: =2
+                RadiusTopRight: =2
+                Size: =15
+                Text: ="Save"
+                Width: =91
+                X: =347
+                Y: =146
+                ZIndex: =10
+
+        DateMeter_DataCard3 As typedDataCard.dateEditCard:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="DateMeter"
+            Default: =ThisItem.DateMeter
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="DateMeter"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =meterdatecard.SelectedDate
+            Visible: =false
+            Width: =153
+            X: =0
+            Y: =2
+            ZIndex: =10
+
+            DataCardKey275 As label:
+                AutoHeight: =true
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =34
+                Size: =13
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            meterdatecard As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                CalendarHeaderFill: =RGBA(100, 118, 132, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                HoverDateFill: =RGBA(205, 209, 213, 1)
+                IconBackground: =RGBA(100, 118, 132, 1)
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SelectedDateFill: =RGBA(100, 118, 132, 1)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey275.Y + DataCardKey275.Height + 5
+                ZIndex: =2
+
+            ErrorMessage252 As label:
+                AutoHeight: =true
+                Color: =RGBA(168, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =meterdatecard.Y + meterdatecard.Height
+                ZIndex: =3
+
+            StarVisible252 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 54, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =DataCardKey275.Height
+                Size: =13
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey275.Y
+                ZIndex: =4
+

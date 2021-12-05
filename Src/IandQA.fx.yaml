@@ -1,0 +1,453 @@
+IandQA As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    "approvalsGalleryIandQA As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =1
+        Height: =546
+        Items: =Search(If(Dropdown2_3.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BTitle' = "All", IandQAProjects, Dropdown2_3.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BTitle' = "Completed", Filter(IandQAProjects, 'Status (Status0)' = "Completed"), Filter(IandQAProjects, 'Status (Status0)' = "Pending")), TextInput4_3.Text, "ProjectNumber", "Capacity", "ProjectLocation", "Title")
+        Layout: =Layout.Vertical
+        OnSelect: =
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =91
+        Width: =1326
+        X: =19
+        Y: =199
+        ZIndex: =1
+
+        Rectangle4_5 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =91
+            Visible: =ThisItem.IsSelected
+            Width: =1324
+            ZIndex: =1
+
+        Separator1_7 As rectangle:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Fill: =RGBA(32, 54, 71, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =2
+
+        Label40_5 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =90
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: =ThisItem.ProjectName
+            Width: =114
+            X: =13
+            Y: =1
+            ZIndex: =3
+
+        Label41_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.ProjectNumber
+            Width: =61
+            X: =146
+            Y: =1
+            ZIndex: =4
+
+        Label42_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.ProjectLocation
+            Width: =175
+            X: =237
+            Y: =1
+            ZIndex: =5
+
+        Label32_5 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.ProjectType.Value
+            Width: =Label40_5.Width
+            X: =433
+            Y: =1
+            ZIndex: =6
+
+        Label33_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.Feeder
+            Width: =Label40_5.Width
+            X: =566
+            Y: =1
+            ZIndex: =7
+
+        Label35_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.Capacity
+            Width: =Label40_5.Width
+            X: =678
+            Y: =1
+            ZIndex: =8
+
+        Label36_5 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.VtRatio.Value
+            Width: =Label40_5.Width
+            X: =771
+            ZIndex: =9
+
+        Label37_16 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.District.Value 
+            Width: =Label40_5.Width
+            X: =877
+            Y: =1
+            ZIndex: =10
+
+        Label37_17 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.ContractorsNumber
+            Width: =104
+            X: =1001
+            Y: =1
+            ZIndex: =11
+
+        Label37_15 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Label40_5.Height
+            OnSelect: =Select(Parent)
+            Size: =Label40_5.Size
+            Text: =ThisItem.ProjectEngineer.DisplayName
+            Width: =104
+            X: =1146
+            ZIndex: =12
+
+        Icon20_3 As icon.clearDrawing:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =39
+            Icon: =Icon.Post
+            OnSelect: =Set(varUserMis, User().FullName);  Set(iVar, ThisItem); Navigate(iForm)
+            Width: =39
+            X: =1267
+            Y: =25
+            ZIndex: =14
+
+        Group3_3 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =17
+
+            Circle1_3 As circle:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =64
+                OnSelect: =Select(Parent)
+                Visible: =If(ThisItem.'Status (Status0)' = "Completed", true, false)
+                Width: =70
+                X: =1249
+                Y: =12
+                ZIndex: =15
+
+            Icon21_3 As icon.Check:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(127, 178, 57, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =39
+                Icon: =Icon.Check
+                OnSelect: |-
+                    =Notify("Status: " & ThisItem.IandQa, NotificationType.Information, 5000)
+                Visible: =If(ThisItem.'Status (Status0)' = "Completed", true, false)
+                Width: =39
+                X: =1264
+                Y: =26
+                ZIndex: =16
+
+    titleTabMetering_3 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =1
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =48
+        Items: =CustomGallerySample
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplateSize: =43
+        Width: =1326
+        X: =19
+        Y: =142
+        ZIndex: =2
+
+        Label63_4 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            OnSelect: =Select(Parent)
+            Size: =11
+            Text: ="Project Name"
+            Width: =90
+            X: =7
+            ZIndex: =1
+
+        Label64_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Address"
+            Width: =185
+            X: =226
+            ZIndex: =2
+
+        Label65_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Project Number"
+            Width: =102
+            X: =116
+            ZIndex: =3
+
+        Label66_4 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Project Type"
+            X: =425
+            ZIndex: =4
+
+        Label67_4 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Feeder"
+            Width: =91
+            X: =575
+            ZIndex: =5
+
+        Label68_4 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Capacity"
+            Width: =81
+            X: =679
+            ZIndex: =6
+
+        Label69_4 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Vt Ratio"
+            Width: =116
+            X: =760
+            ZIndex: =7
+
+        Label70_12 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Business Unit"
+            Width: =96
+            X: =876
+            ZIndex: =8
+
+        Label70_13 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Contractor"
+            Width: =96
+            X: =995
+            Y: =3
+            ZIndex: =9
+
+        Label70_14 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =Label63_4.FontWeight
+            OnSelect: =Select(Parent)
+            Size: =Label63_4.Size
+            Text: ="Project Engineer"
+            Width: =77
+            X: =1143
+            Y: =3
+            ZIndex: =10
+
+    Dropdown2_3 As dropdown:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        ChevronBackground: =RGBA(100, 118, 132, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: ="All"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        Items: |-
+            =Table({Title: "All", Screen: App.ActiveScreen}, {Title: "Completed", Screen: App.ActiveScreen}, {Title: "Pending"})
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(32, 54, 71, 1)
+        SelectionFill: =RGBA(100, 118, 132, 1)
+        Size: =13
+        X: =19
+        Y: =90
+        ZIndex: =3
+
+    TextInput4_3 As text:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =1
+        HoverBorderColor: =RGBA(32, 54, 71, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        PaddingLeft: =45
+        RadiusBottomLeft: =
+        RadiusBottomRight: =
+        RadiusTopLeft: =
+        RadiusTopRight: =
+        Size: =13
+        Width: =361
+        X: =984
+        Y: =90
+        ZIndex: =4
+
+    Icon13_3 As icon.ArrowsUpDown:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =40
+        Icon: =Icon.Sort
+        Width: =40
+        X: =358
+        Y: =90
+        ZIndex: =5
+
+    Icon14_3 As icon.Search:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(219, 219, 219, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =26
+        Icon: =Icon.Search
+        Width: =26
+        X: =991
+        Y: =97
+        ZIndex: =6
+
+    Label25_6 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =DarkGoldenRod
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        Height: =58
+        Size: =40
+        Text: ="Projects."
+        Width: =386
+        X: =12
+        Y: =18
+        ZIndex: =7
+
+    Label56_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(232, 244, 217, 1)
+        Height: =51
+        Size: =13
+        Text: |-
+            ="TOTAL : " & Count(IandQAProjects.ID) & "   COMPLETED : " & Count(compI.ID)
+        Width: =361
+        X: =984
+        Y: =25
+        ZIndex: =8
+
